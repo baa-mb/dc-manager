@@ -1,0 +1,27 @@
+/* CSS Document */
+body {
+	margin:16px;
+	font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+
+	font-size:1.0em;
+	
+	background-color:#fff;
+	background-image: none;
+
+	color:#333;	
+
+	line-height:normal; 
+}
+
+a {color:blue}
+h1,h2,h3,h4,h5,h6 {
+	background-color:#D4DC88;
+	padding:4px ;padding-top:8px ;
+	border-radius:4px;
+}
+
+p {line-height: normal;}
+
+th {
+	background-color:#ccc
+}

@@ -1,0 +1,112 @@
+
+html {
+  font-size: 2.4vw;
+  font-size: 1.4vw;
+}
+
+body {
+    /* box-sizing: border-box; */
+    
+    font-size:inherit;
+    /* font-size: 1.7vw; */
+    margin: 0;padding:0;
+    background-color: #fff;
+    color: #333;
+    background-image:none;
+}
+  
+
+  .ablatt {
+    /* position: relative;
+    width: 100%;
+    padding-top: 141.5%; */
+
+    background-image: url("../../assets/images/ab_hg_dc_v3.png");
+    background-repeat:no-repeat;
+    background-size: contain;
+    /* background-size: cover; */
+    padding: 8% 8%;
+    width: 83.8%;
+    border:1px solid blue;
+    page-break-before: always;
+  }
+
+
+  h1,h2,h3,h4 {
+    background-color: #fff;
+    text-align:left;
+  }
+
+  h2 {
+    padding:0px;
+  }
+
+  h1.titel {
+    color:red;
+    font-size:1.6rem;
+    padding:8px;
+    background-color: #eee;
+    display:flex;
+    justify-content:space-between;
+  }
+
+  .name_datum {  
+    font-weight:bold;
+    
+    display:flex;
+    justify-content:space-between;
+  }
+
+  h3.ues {  
+    font-weight:bold;
+    margin-bottom:4px;
+  }
+
+  table td th{
+      font-size:inherit;
+      /* padding:4px ; */
+
+  }
+
+
+  table.aufgabe {
+    
+  }  
+
+  table.aufgabe td {
+    border:none;
+    width:50%;
+  }
+
+  table.frage td {
+      border-bottom:2px solid black;
+      padding:8px 4px 4px 8px;
+      /* padding:1% 1% 0.5% 1%; */
+  }
+
+  table.frage td:first-child {
+    
+    white-space:nowrap;    
+
+  }   
+
+  ul li {
+    font-size: inherit
+  }  
+
+
+  img.sg_stern {
+    width:36px
+  }
+
+
+@media print {
+    body {
+        font-size:1.15vw;
+        color:black;
+    }
+}
+  
+
+
+

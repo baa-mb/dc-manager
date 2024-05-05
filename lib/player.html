@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Cache-Control" content="must-revalidate">
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" /> -->
+    <title>DC-Schüler</title>
+    
+    
+    <link rel="apple-touch-startup-image" href="../assets/images/icons/digi.case.apple.png">
+    <link rel="apple-touch-icon" href="../assets/images/icons/digi.case.apple.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    
+
+    <link rel="stylesheet" href="dc_allgemein.min.css">
+    <link rel="stylesheet" href="player.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+
+        
+    <script src="dc_all.js"></script>
+    <script src="dc_allgemein.min.js"></script>
+    <script src="player.js?111"></script>
+
+
+    <link rel="stylesheet" href="js/sketch/sk.min.css" />
+    <script src="js/sketch/simple_sketch.min.js?24"></script>
+    <script src="js/sketch/sk.min.js?24"></script>
+    
+    <script type="text/javascript" src="js/h2c/html2canvas.js"></script>
+
+
+
+
+
+
+<style>
+        body {
+            font-family:Arial, Helvetica, sans-serif;
+        }
+</style>
+
+
+
+</head>
+
+<!-- <body xxxstyle="margin:0;position:absolute;left:0;right:0;bottom:0;top:0;"> -->
+<body style="user-select:none">
+    <!-- <audio id="myClick">
+        <source src="assets/sounds/click.mp3" type="audio/mpeg">
+        <source src="assets/sounds/click.ogg" type="audio/ogg">
+    </audio> -->
+
+    <div id="tabs">
+        <ul id="ul_top">
+            <!-- <li><a href="#tabs-1">DIGI.CASE<span id="akt_lehrer_name" class="utitel"></span></a></li> -->
+            <!-- <span id="tabImg"><img src="../assets/icons/digi-case.png"></span> -->
+            
+            <li id="tabImg"><img  id="tabImgI" src="../assets/icons/digi-case.png"></li>
+            <li><a href="#tabs-I" id="TI">Information</a></li>
+
+            <li><a href="#tabs-W" id="TW" title="Wochenpläne öffentlich">Wochenpläne X</a></li>
+            <li><a href="#tabs-W" id="TK" title="Wochenpläne meiner Klasse">Klassen-WP</a></li>
+            <li><a href="#tabs-P" id="TP" onclick="hole_wpl()">Meine Ergebnisse</a></li>
+
+            <li><a href="#tabs-L" id="TL" onclick="ABMELDUNG()">Anmeldung</a></li>
+            <!-- <li><a href="#tabs-AB" id="AB"  onclick="ABMELDUNG()">ABMELDUNG</a></li>    -->
+
+            <li id="tab_info">Klasse: <span>...</span><br>Schüler/in: <span>...</span></li>
+            
+            
+           
+            <li style="float:right"><img title='Vollbild einschalten' id='fs_icon' onclick='toogleFullscreen()' src='../assets/icons/fullscreen_white_24_kl.png'></li>
+            <li style="float:right"><img title='Zeichnen einschalten' id='stift_zch' art='0' onclick='open_sketch()' src='../assets/icons/pinsel.png'></li>
+            <li style="float:right"><img id="druck" src='../assets/icons/drucker_w.png' style='width:32px' onclick="drucken()"/></li>
+            
+
+            
+            <!-- <li style="float:right"><a href="#tabs-AB" id="fs"  onclick="toogleFullscreen()">xxx<img id="fs" src='../assets/icons/fullscreen_white.png' xonclick="toogleFullscreen()"/></a></li> -->
+            
+        </ul>
+        
+        
+        <div id="tabs-I">
+
+            <!-- <button id="SS" onclick="clipboard()">Screenshot</button>
+            <p>Paste your image here…</p>
+            <img id="container" style="width:100px;height:100px;border:1px solid red" contenteditable="true"/> -->
+            
+
+            <div class="cont_haupt" style="text-align:center">
+                <h2>digi.case-Player</h2>
+                <div class='cont_3'>
+                <div>
+                    <button class="ui-button ui-widget ui-corner-all" onclick="ohne_anmeldung()">Als Gast arbeiten<br>(ohne Anmeldung)</button>
+                </div>
+                <div>
+                    <img class="uesImg" onclick='comp_einstellungen()' src="../assets/icons/biber_both.png"><br>
+                    <!-- <button class="ui-button ui-widget ui-corner-all" onclick="comp_einstellungen('pc')">Einstellungen<br>PC und iPad</button> -->
+                </div>
+                <div>
+                    <!-- <img xclass="uesImg" onclick='anmeldungseite_einblenden()' src="../assets/icons/biber_both.png"><br> -->
+                    <button class="ui-button ui-widget ui-corner-all" onclick="anmeldungseite_einblenden()">SchülerInnen<br>Anmeldung</button>
+                    <!-- <button class="ui-button ui-widget ui-corner-all" onclick="comp_einstellungen('ipad')">Anmelden</button> -->
+                </div>
+                </div>
+                <!-- <canvas id="canvas" width="300" height="300"></canvas>
+                <img id="img_sshot" src=""/> -->
+
+
+                <h3 id="user_aktuell">Hallo Biber Unbekannt - bitte anmelden!</h3>
+                <span style="margin:0"><h4>Du kannst mit diesem System viele schlaue und knifflige Aufgaben lösen.</span>
+                <div id="cont_theme">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="tabs-L">
+            <div class="cont_haupt" id="kLogin">
+                <div class="cont_mitte">
+                    <div class='cont_links'><br>
+                        <div class='cont_drittel'>
+                            <div>
+                                <h2 class="unten_reduz">Meine Klasse</h2>
+                                <p>Wähle deine Klasse - frage deine Lehrkraft nach dem Klassencode:</p>
+                                <!-- <br> Der Geheimcode für die Klasse ist deshalb notwendig, damit sich nicht Schülerinnen und Schüler anderer Schulen an den Aufgaben deiner Klasse beteiligen. -->
+                                <div id='code_schloss' class="ui-button ui-widget ui-corner-all p100">
+                                    <div class="steuer_zeile s_ob"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div>
+                                    <div id="code_zeile"><span>A</span><span>0</span><span>0</span><span>0</span></div>
+                                    <div class="steuer_zeile s_un"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></div>
+                                </div>
+                                <div>
+                                <input id="kl_code_absenden" class="ui-button ui-widget ui-corner-all p100" type="button" value="Anmeldung mit Klassencode" title="Sende Klassencode" onclick="anmeldung_klasse_code()">
+                                <div id="kl_feedback">Gastklassencode ist G000 (zum Probieren)</div>
+                                <!-- <input id="kl_abmelden" class="ui-button ui-widget ui-corner-all p100 hid" type="button" value="ABMELDUNG vom System" title="ABMELDUNG vom System" onclick="ABMELDUNG()"> -->
+                                </div>
+                                <!-- <br><br>
+                                <button type="button" class="ui-button" onclick="zeige_login()">Teil B</button> -->
+
+                            </div>
+
+                            <div id="schueler_3">
+                                <h2 class="unten_reduz">SchülerInnen der Klasse</h2>
+                                <p style="text-align:justify" >Deine Lehrkraft hat dir deine SchülerInnen-Nummer zugeteilt. Mit dieser  Nummer kannst du jetzt einloggen. 
+                                    <br>
+                                    Später zeigt dir deine Lehrerin/dein Lehrer, wie du einen sicheren Zugang erstellen kannst. <span id="demo_info"></span>
+                                </p>
+                                <div id="cont_schueler_liste">
+                                </div>
+                                <div id="sch_feedback">...</div>
+                                <!-- <input id="kl_code_absenden" class="ui-button ui-widget ui-corner-all p100" type="button" value="Einwählen mit der Schülernummer" title="Sende Klassencode"> -->
+                                <input class="ui-button ui-widget ui-corner-all p100" type="button" value="Anlegen eines Bild-Farb-Passwortes" onclick="show_bild_passwort()">
+                                
+                            </div>
+
+
+                            <div id="passwort_3">
+                                <h2 class="unten_reduz">Das Farb-Tier-Passwort für <span id="snr"></span></h2>
+                                <iframe id="ifr_tiere" src="../assets/lib/tiere/tiere_waehlen.html?123"></iframe><br>
+                                <input id="kl_code_absenden" class="ui-button ui-widget ui-corner-all p100" type="button" value="Einloggen mit Bildpasswort (noch in Arbeit)" Bildpasswort title="Sende Klassencode">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="cont_rechts">
+                    </div>
+                </div>
+            </div>
+            <!-- <hr>
+            <div class="cont_haupt" id="uLogin">
+                <div class="cont_mitte">
+                    <div class='cont_links' style="width:45%">
+                        <h1>Dein Passwort</h1>
+                        Das Passwort ist diesmal ein ganz besonderes, es besteht aus einem Tier und einer Farbe - merke dir diese Kombination gut, du wird sie beid jedem Einstieg brauchen.
+                    </div>
+                    <div class="cont_rechts" style="flex:1 0">
+                        <iframe id="ifr_tiere" src="../../digi-case/ressourcen/flash_prg/tiere_waehlen.html" ></iframe>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+
+        <div id="tabs-W">
+            <div id="cont_uebungen">
+                <div id="ueb_acc">
+                </div>
+                <iframe id="uebung_ifr_H" src="../assets/html/hgbild.html"></iframe>
+            </div>
+        </div>
+
+        <div id="tabs-P">
+            <!-- <button onclick="baa_scroll()">scroll</button> -->
+            <div class="cont_haupt" id="p_haupt">
+                <!-- <div class="ues" style="margin-bottom:1%">Meine Ergebnisse aus ...</div> -->
+                <div id="cont_wplan" class="cont_elemente">.</div>
+                
+                <div id="cont_protok"></div>
+                <!-- <iframe id="uebung_ifr_S" src="../assets/html/hgbild.html"></iframe> -->
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- Allenfalls -->
+    <div id="dialog_allgemein" title="Arbeitshinweis">
+        <p id="dialog_info">
+        </p>
+    </div>
+
+
+    <div id="dialog_benotung" title="Übungshinweis">
+        <div style="display:flex">
+            <iframe id="app_fenster_3" src="../assets/html/hgbild.html"></iframe>   
+        </div>
+    </div>
+    
+    
+    <!-- gibt es auch im lehrermodul -->
+    <div id="dialog_iframe_uebg" title="Übungshinweis">
+        <div>
+            <iframe id="app_fenster_2" src="../assets/html/hgbild.html"></iframe>   
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>

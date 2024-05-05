@@ -1,0 +1,178 @@
+/* CSS Document */
+@import url("make_html.css");
+@import url("make_html_spielkarten.css");
+body {
+  margin:16px;
+  font-size:1.5em;
+  background-color:#fff;
+  color:#444;
+
+}
+a {color:blue}
+h1,h2,h3,h4,h5,h6 {
+    background-color:#D4DC88;
+    padding:12px ;
+    padding-bottom:8px ;
+    border-radius:4px;
+}
+/* p {line-height: normal;}
+*/
+
+.divTrans {
+    font-size: 22px;
+}
+.ifr100 {
+    border:none;
+    margin:0;padding:0;
+    width:100%;
+    height:98%;
+}
+
+
+th {
+  background-color:#eee;
+  line-height:1.5em;
+}
+
+
+
+.spielkarte,.spielkarte_gross {
+  position:relative;
+  font-size:32px;
+  border:4px solid red;
+  border-radius:24px;
+  background-image:url("../../images/hg_karte.png");
+ 
+  /*
+  width:333px;
+  height:524px;
+  */
+  background-repeat:no-repeat;
+  background-size:cover;
+
+
+
+  margin:5mm;
+
+
+  width:73mm;
+  height:114mm;
+
+  padding:16px 24px;
+  text-align:center;
+  page-break-inside: avoid;
+  float: left;
+}
+
+.spielkarte_gross {
+  width:164mm;
+  height:254mm;
+  text-align:left;
+  font-size:20px;
+  background-image:url("../../images/hg_karte_hell_hell.png");
+  border:6px solid red;
+  /* margin:24px;
+  */
+}
+
+.spielkarte_gross img:first-child {
+  border:2px solid #aaa;
+  border-radius:8px;
+}
+
+.spielkartenNr {
+  position:absolute;
+  top:0.7em;  right:1em;
+  text-align:right;
+  font-size:0.5em;
+  font-weight:bold;
+  color:yellow;
+}
+
+.spielkarte .ues {
+  font-size:1.0em;
+  font-weight:bold;
+  color:yellow;
+  margin:0;
+  padding-top:0.5em;
+/*
+  border:1px solid red;
+*/
+}
+
+
+
+.spielkarte .frage {
+  color:yellow;
+  font-size:0.6em;
+  margin:0;
+  padding:10px 0 2px;
+  overflow:hidden;
+  /*
+  border:1px solid red;
+  */
+}
+
+.spielkarte .rahmen_img {
+
+
+  border-radius:12px;
+  border:3px solid #666;
+  background-color:white;
+
+  box-sizing: border-box;
+  height:365px;
+  width:100%;
+  /*
+  spielkarten:
+  */
+
+  display:table-cell;
+  vertical-align:middle;
+
+  overflow:hidden;
+}
+
+.rahmen_img.tangram {
+  margin-top:32px;
+}
+
+
+.spielkarte img {
+  width:80%;
+}
+
+.spielkarte .wuerfelquadrat {
+
+  width:100%;
+  height:100%;
+  /*border:1px solid blue; */
+  padding:10%;
+  box-sizing: border-box;
+
+  background-repeat:no-repeat;
+  background-size:contain;
+  color:yellow;
+}
+
+.spielkarte.hell  { /*große walh */
+  background-image:url("../../images/hg_karte_hell.png");
+
+}
+
+
+.spielkarte .wuerfelfeld {
+  font-size:0.8em;
+  box-sizing: border-box;
+  width:33.0%;height:33.0%;
+  font-weight:bold;
+  padding-top:9%;
+  float:left;
+}
+
+
+@media print {
+  body {
+    margin:0;padding:0;
+  }
+}

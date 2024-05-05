@@ -1,0 +1,81 @@
+/* CSS Document grünmer HG - grosse schrift */
+body {
+  font-size: 20px;
+  /* vorsicht font-size wird berechnet */
+  margin: 1% 3%;
+  /* margin:5%; */
+  background-color: #fff;
+  color: #333;
+  background-image: none;
+
+  font-family: 'Roboto';
+  text-align: justify;
+  
+}
+h1,h2,h3,h4,h5,h6 {text-align:center;}
+a {
+  color: blue;
+  /* text-decoration: none; */
+}
+
+.baaContainer {
+  font-size: 18px;
+}
+
+table {
+  
+  /* font-size: inherit; */
+}
+
+td,
+th {
+  border: 1px dotted #eee;
+  padding: 1%;
+  
+  text-align: justify;
+}
+
+
+
+span.hg,
+span.hgb,
+span.hgr,
+span.hgg {
+  box-shadow:none;
+  border: 1px solid #333;
+  padding: 0.2em 0.5em 0.1em;
+  white-space: nowrap;
+  display:inline
+}
+
+
+.lay_table {
+  width: 50%;
+  float: left;
+  padding: 0px;
+}
+
+.lay_table.linie {
+  border-right: 3px solid #bbb;
+}
+
+.lay_table td {
+  padding: 16px;
+
+}
+.bildautor {
+  font-size:0.5em;
+}
+.rahmenmorse {
+  border:2px solid red;
+  border-radius:4px;
+  margin-top:4px;
+}
+
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

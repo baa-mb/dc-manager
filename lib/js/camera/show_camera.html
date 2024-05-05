@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Cache-Control" content="must-revalidate">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>BAA-Web-Cam</title>
+    <!-- <script src="//code.jquery.com/jquery-1.10.2.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-latest.min.js"></script> -->
+    <!-- <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script> -->
+    
+    <style>
+        body {
+            margin: 0;
+            background-color: #333;
+            /* background-color: #fff; */
+            /* background-color: red; */
+            overflow: hidden;
+            text-align: left;
+         
+            display: inline;
+        }
+        
+        button,
+        div {
+            height: 24px;
+            display: inline;
+        }
+        
+        #video {
+            border: 1px solid #666;
+            /* text-align:left; */
+            margin: 0;
+        }
+        
+        /* canvas {
+            border: 2px solid yellow;
+        } */
+        
+        #photo {
+            border: 1px solid white;
+        }
+        
+        img {
+            filter: blur(5px);
+            filter: contrast(200%);
+            filter: hue-rotate(90deg);
+            filter: sepia(60%);
+            filter: invert(75%);
+            filter: drop-shadow(16px 16px 20px blue);
+            filter: grayscale(100%);
+        }
+        
+        button {
+            margin: 0px;
+            height: auto;
+            border: 1px solid black;
+            /* border-radius: 4px; */
+            opacity: 0.5;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        
+        button:hover {
+            opacity: 1;
+        }
+        
+        #b_container {
+            position: fixed;
+            bottom: 0px;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body onclose="return ccc()">
+    <!--
+	Ideally these elements aren't created until it's confirmed that the 
+	client supports video/camera, but for the sake of illustrating the 
+	elements involved, they are created with markup (not JavaScript)
+	-->
+
+
+    <video id="video" width="320" height="240" autoplay></video>
+
+    <div id="b_container">
+        <!-- <button onclick="set_size(0)" title="max">R</button> -->
+        <!-- <button onclick="vtest()">t1</button> -->
+        <!-- <button onclick="video_stop(-2)">close</button> -->
+        <!-- <button onclick="video_stop(-1)">stopp</button> -->
+
+        <!-- <button onclick="set_size(5)">5</button> -->
+        <!-- <button onclick="set_size(4)">4</button> -->
+        <!-- <button onclick="set_size(3)">g</button>
+        <button onclick="set_size(2)">m</button>
+        <button onclick="set_size(1)">k</button> -->
+        <!-- <button onclick="open_from_video(1)">Zeichnen und speichern</button> -->
+    </div>
+
+    <!-- <canvas id="canvas" width="320" height="240"></canvas>  -->
+
+    <!-- <img id="photo" src="" width="320" height="240" /> -->
+
+
+</body>
+
+</html>
+<script src="show_camera.js"></script>

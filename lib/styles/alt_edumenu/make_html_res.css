@@ -1,0 +1,48 @@
+/* CSS Document */
+body {
+    margin:24px;
+    font-family: sans-serif, Arial, Verdana, "Trebuchet MS";
+    font-size:1.5em;
+    background-color:#555;
+
+    color:#ddd;	
+
+    line-height:normal; 
+}
+
+table {
+    width:100%;
+    border:1px dotted #666;
+    border-collapse:collapse;
+}
+
+td {
+    border:1px dotted #666;padding:4px;
+    vertical-align:top;
+}
+.img100 {width:100%}
+xximg {width:100%}
+
+a {color:yellow}
+
+li {
+    /*	line-height:1.5em; */	
+    margin-bottom:0.7em
+}
+
+h1,h2,h3,h4,h5,h6 {text-align:center;}
+
+.baaContainer {height:auto}
+
+.imgnorm {border:none}
+
+.divTrans {
+    position: absolute; 
+    color:black;
+    padding: 8px; top: 10px; width: 32%; right: 10px; color: black; font-size: 22px;
+    opacity: 0.9; 
+    background-color: rgb(238, 238, 238);    
+    border-radius:6px;
+    width:40%;
+    top:100px;
+}

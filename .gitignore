@@ -1,0 +1,31 @@
+# ignore all logs
+*.log
+ckeditor4/
+!ckeditor4/plugins/
+!ckeditor4/*.js
+
+assets/
+games/
+ckeditor/
+ckfinder/
+sicherung/
+tmp/
+test/
+zzz_*
+* copy.*
+*.min.*
+*.zip
+
+# ~/.config/git/ignore
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+# Local History for Visual Studio Code
+.history/
+
+# Built Visual Studio Code Extensions
+*.vsix

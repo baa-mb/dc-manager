@@ -1,0 +1,388 @@
+
+::-webkit-scrollbar {
+    width: 3px;
+}
+/* Track */
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 3px;
+}
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: red;
+    background: #ccc;
+    border-radius: 3px;
+}
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: green;
+    background: orange;
+}
+html {
+    font-size:1.1vw;
+    /* font-size:1.3vw; */
+    font-size:1vw;
+    
+}
+
+body {
+    background-image:url('../assets/icons/hgbild6.png');
+    
+}
+
+
+.hid {
+    display: none !important;
+}
+
+/* .hidA { 
+    display: none !important;
+} */
+
+div.protok_zeile {
+    border-bottom:2px solid #e29c32;
+    display:flex;
+    align-items:end;
+    /* justify-content: center; */
+    margin-bottom:4px;
+    
+}
+
+/* div.protok_zeile > span {
+    color:red;
+} */
+
+.wp_protok_seite>span {
+    height:100% !important;
+}
+
+
+.uebg_butt_ed {
+    aspect-ratio: 1.5;
+    width: 64px;
+    border-width:3px !important;
+}
+
+.uebg_butt {
+    /* flex: 0 0 64px; */
+    /* height:64px; */
+    width:100%;
+    aspect-ratio: 1.5;
+    /* margin-top:0.1em;  */
+    margin-bottom:0.2em;
+    font-size:0.9em;
+    padding:4px;
+    border-width:2px;
+} 
+
+.uebg_butt:hover {
+    /* border-color:rgb(134, 89, 6); */
+    border-width:2px;
+}    
+
+.wb_uebg_butt {
+    font-size:0.9em !important;
+    width:100%;
+    aspect-ratio: 1.5;
+    margin-bottom:0.2em;
+    padding:4px !important;
+    border-width:2px;
+    background: none !important;
+} 
+
+
+.prot_uebg_butt {
+    /* flex: 0 0 8%; */
+    /* height:2vh; */
+    height:64px;
+    aspect-ratio: 1.3;
+    margin-bottom:0.2em;
+    
+    /* font-size:1.3vw !important; */
+    font-size:0.9em !important; 
+
+    padding:0.3% !important;
+    border-width:2px;
+    overflow-x:hidden !important;
+} 
+
+
+
+.tab_uebg_butt {
+    width:100%;
+    /* margin:0.2em; */
+    padding:8px 0.2% !important;
+    border-width:2px;
+    /* font-size:1.8vw  !important; */
+    height:100%;
+} 
+
+
+
+.sch_butt {
+    width:auto;    
+}
+
+
+/* button:focus {
+    border-width:3px !important;
+
+} */
+
+.noh {
+    height:auto;
+}
+
+/* derzeti nur beim wplan im player */
+
+/* .uebg_butt { 
+    border-radius:8px;
+    border-color:#999;
+    border-width: 4px;
+    cursor:pointer;
+}     */
+
+div.cont_erg {
+    display:flex;
+    align-items:center;
+    flex-wrap: wrap;
+    /* border:1px solid green; */
+}
+
+span.ein_erg_smiley,span.ein_erg_img {
+    padding:4px 3px;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    font-size:0.8rem;
+    /* border:1px solid green; */
+}
+
+.cont_smiley_img,.cont_prot_img {
+    display:flex;
+    
+    flex: 0 0 15%;
+    max-width: 64px;
+    max-height: 48px;
+}
+
+.cont_prot_img {
+    display:flex;
+    
+    flex: 0 0 15%;
+    max-width: 96px;
+    max-height: 72px;
+}
+
+
+
+
+.cont_prot_img {
+    /* flex: 0 0 33%; */
+    /* max-width: 120px; */
+  
+    /* max-width:72px; */
+    /* width: 100%;
+    height: 50%; */
+    /* height:120%; */
+    border:1px solid #333;
+    margin-right:4px;
+    text-align:center;
+}    
+/* .smiley_text {
+    height:48px;
+}  */
+
+.cont_smiley_img img {
+    /* flex: 0 1 30%; */
+    /* width:50%; */
+    width:100%;
+}
+
+
+
+.p100 {width:100%}
+
+table.t_protok {
+
+    width:100%;
+    border-collapse: collapse;
+    /* border:2px solid #666; */
+    
+    font-size:0.8em;
+
+}
+
+.table_bk {
+    background-color: #eee;
+    border:2px solid #333;
+    border-radius:8px;
+    padding:8px;
+
+}
+
+table.t_protok tr {
+    border-bottom:1px solid #666;
+}
+
+table.t_protok th,table.t_protok td {
+    border-right:1px solid #666;
+    
+}
+
+table.t_protok th {
+    padding:4px;
+    border-right:1px solid #666;
+    background-color:#ccc;
+    opacity:0.8;
+}
+table.t_protok th:last-child {
+    border-right:none
+}
+
+table.t_protok td {
+    text-align: center;
+}
+
+.butt_acc_header {
+    /* border:1px solid red !important; */
+    padding-left: 0.1em !important;
+    padding-right: 0.3em !important;;
+}
+
+.butt_acc_header .datum {
+    font-size:0.8rem;
+}    
+
+
+iframe {
+    width:100%;
+    max-height:1400px;
+}
+
+#fs {
+    position: fixed;
+    top: 0;
+    right: 0;
+    cursor: pointer
+}
+
+
+
+#dialog_allgemein,#dialog_iframe_uebg,#dialog_benotung {
+    /* position:fixed; */
+    /* top:20vh; */
+    display: none;
+    /* width: 80%; */
+    max-height:1000px;
+}
+
+
+
+.ui-dialog-content {
+    padding-bottom:0 !important;
+}
+
+
+
+
+#app_fenster_1,#app_fenster_2,#app_fenster_3 {
+    flex: 1 0;
+    width: 100%;
+    /* height: 50vw; */
+    /* aspect-ratio: 1.33; */
+    aspect-ratio: 1.48;
+    /* aspect-ratio: 1.6; */
+    border: 2px solid #333;
+    border-radius:8px;
+}
+
+/* #app_fenster_1 {
+    aspect-ratio: 1.2;
+} */
+
+
+
+#app_fenster_2 {
+    flex: 1 1;
+    /* max-width:30%; */
+}     
+
+#app_fenster_3 {
+    aspect-ratio: 1.8;   
+}    
+
+.mark_elem {
+    /* border-radius: 1em; */
+    border-width: medium !important;
+    border-color:red !important;
+    opacity:1; 
+}
+
+.farb_butt {
+    width: 3%;
+    border-radius:32px;
+    padding:0.3% 0.1% !important;
+    background-size: contain !important;
+    /* text-shadow: 1px 1px #000; */
+
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#stift_zch {
+    /* width:32px; */
+    margin:0;
+    /* width:100%; */
+    aspect-ratio: 1;
+    border-radius:24px;
+    /* border:2px solid green; */
+    /* margin-right:8px; */
+
+    padding:4px;
+    background-color:white;
+  }
+
+  #fs_icon {
+    margin:0;padding:0;
+    
+  }
+
+
+.ext {
+    transform: scale(1.5)
+}
+
+.achtung_mann {
+    display:flex;
+    justify-content: space-around;
+    /* justify-content: space-between; */
+    width:100%;
+    align-items: end;
+}
+
+#uebg_hinweis {
+
+    font-size: 1.2em;
+}
+
+
+.ub_ui-icon-disk,.ub_ui-icon-bleist {
+    background-image: url("../assets/icons/save.png"); 
+    background-repeat: no-repeat;
+    background-position: center;
+    /* width:32px; */
+    height:32px;
+    border:none;
+    background-color:transparent;
+}
+
+.ub_ui-icon-bleist {
+    background-image: url("../assets/icons/edit_bleist.png"); 
+}    
+#cont_theme {
+    font-weight:normal;
+    font-size:0.9em;
+}

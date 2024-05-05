@@ -1,0 +1,12 @@
+@import url("make_html.css");
+
+body {  background-image: url("/kcfinder/upload/images/tafel_hg.jpg");}
+img {
+  width:100%;
+  border:4px solid #888;
+  border-radius:16px
+}
+
+li ul {
+  /* margin-top:0.7em */
+} 

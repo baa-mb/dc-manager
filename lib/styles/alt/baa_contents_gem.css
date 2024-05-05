@@ -1,0 +1,48 @@
+/* CSS Document */
+*,
+::after,
+::before {
+    box-sizing: border-box;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+html, body, html * {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+}
+
+
+/* html * {
+    color: #333;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}  */
+
+body {
+    /* font-size:2rem; */
+    /* font-size: 2.3vw; */
+    margin: 5%;
+}
+
+ul {
+    list-style-image: url('bee_birg_bullet_quer_k.png');
+}
+
+
+img {
+    width: 100%
+}
+
+td {
+    vertical-align: top;
+}
+
+
+h1,h2,h3,h4,h5,.xtafel_orange {
+    color:white;
+    /* color:black; */
+    background-color:orange;
+    border-radius:1vw;
+    padding:1% 2%;
+    margin-left:-2%;
+    margin-right:-2%;
+}

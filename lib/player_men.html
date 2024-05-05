@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta http-equiv="Cache-Control" content="must-revalidate">
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="must-revalidate">
+
+    <!-- <link rel="stylesheet" type="text/css" href="mitte.css?111" /> -->
+
+    <!-- <link rel="stylesheet" type="text/css" href="men_acc.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+
+    <!-- <script type="text/javascript" src="men_acc.js"></script> -->
+    <script type="text/javascript" src="player.js"></script>
+
+    <style>
+        body {
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8em;
+            margin:2px;
+        }
+        header {
+            font-size: 1.2em;
+            padding:4px;
+        }
+        
+        a.a_h2 {
+            background: var(--button_background_h2) !important;
+            color:black  !important;
+        }
+        
+        .mg-acc li a {
+            display: block;
+            text-align: center;
+            padding: 6px 6px;
+        }
+        
+        .mg-acc li a:hover {
+            border:none;
+            border-left: 8px solid white;
+            border-right: 8px solid white
+        }
+        
+        .sel_rahmen {
+            border: 2px solid rgb(203, 241, 36) !important;
+            border: 4px solid rgb(203, 241, 36) !important;
+            border-left: none !important;
+            border-right: none !important;
+            /* box-shadow: 0 0 5em red  !important;; */
+        }
+        
+        a.openItem {
+            background-color: var(--button_mark) !important;
+            color: var(--button_mark_color) !important;
+            /* border-left: 6px solid yellow !important;; */
+        }
+        /* .mg-acc ul li a{
+        background: var(--button_background);
+    } */
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            // $("#navbar").html(htm);
+
+            for (i = 0; i < 12; i++) {
+                $(".wplan_rahmen").first().clone().appendTo("#navbar");
+            }
+
+            $(".wplan_rahmen").each(function(idx) {
+                $el = $(this).find("#a0");
+                $el
+                    .attr("id", "a" + idx)
+                    .text("WPL-" + (idx + 1))
+
+
+            });
+
+            // setTimeout(function(){
+            mg_acc = $('#navbar').mgaccordion();
+            // },3000)
+
+
+
+            // set_theme(102);
+
+            // $s = $("#s0").clone();
+        })
+    </script>
+
+</head>
+
+<body>
+    <header>Wochen-pläne</header>
+    <ul class="navbar" id="navbar">
+        <li class="wplan_rahmen">
+            <a class="a_men" id="a0" href="#" onclick="call_link(0)">WPL-01</a>
+            <ul>
+                <li>
+                    <a class="a_h2" onclick="send_login()">B123</a>
+                </li>
+                <li>
+                    <a class="a_h2" onclick="send_login()">B123</a>
+                </li>
+                <li>
+                    <a class="a_h2" onclick="send_login()">B123</a>
+                </li>
+                <li>
+                    <a class="a_h2" onclick="send_login()">B123</a>
+                </li>
+                <li>
+                    <a class="a_h2" onclick="send_login()">B123</a>
+                </li>
+                <li>
+                    <a class="a_h2" onclick="send_login()">B123</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+
+
+</body>
+
+</html>

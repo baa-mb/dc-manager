@@ -1,0 +1,1105 @@
+<!-- siehe auch https://learningapps.org/api -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API-Categ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/x2js/1.2.0/xml2json.min.js"></script>
+    <!-- <script type="text/javascript" src="lib/xml2json.min.js"></script> -->
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/xml2json-light/dist/xml2json.min.js"></script> -->
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            color: black;
+            font-size: 0.8em;
+        }
+
+        #custom-check-solution-btn,
+        #results {
+            margin: 1rem;
+            padding: 0.5rem;
+            overflow: hidden;
+            border-radius: 4px;
+            border: none;
+            color: white;
+            background-color: red;
+            font-size: 1.125em;
+            font-weight: bold;
+            text-align: center;
+            display: none;
+            z-index: 1;
+            position: absolute;
+            bottom: 5px;
+        }
+
+        #results {
+            left: 5px;
+        }
+
+        #custom-check-solution-btn {
+            right: 5px;
+            cursor: pointer;
+        }
+
+        #custom-check-solution-btn:hover {
+            transform: scale(1.02);
+        }
+
+        #custom-task-panel,
+        #custom-feedback-panel {
+            position: absolute;
+            width: 300px;
+            padding: 1rem;
+            color: red;
+            color: #333;
+            background-color: yellow;
+            background-color: rgb(226, 226, 235);
+            display: none;
+            z-index: 1;
+            margin: 0 auto;
+            left: 0;
+            right: 0;
+            bottom: 100px;
+            border-radius: 12px;
+            border: 2px solid #666;
+        }
+
+        #custom-task-panel img,
+        #custom-feedback-panel img {
+            position: absolute;
+            width: 100px;
+            bottom: -100px;
+            left: -100px;
+            background: yellow;
+            padding: 1rem;
+            border: 10px solid grey;
+            border-radius: 50%;
+        }
+
+        #custom-task-panel button,
+        #custom-feedback-panel button {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            width: 28px;
+            height: 28px;
+            background: black;
+            color: white;
+            border-radius: 50%;
+            border: 3px solid red;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        iframe,
+        #LearningAppData {
+            height: 80vh;
+            width: 49.5%;
+            border: 2px solid red;
+            float: left;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        #cont_butt {
+            border: 2px solid blue;
+        }
+
+        button {
+            padding: 4px;
+            margin: 2px;
+        }
+
+        .hpt {
+            background-color: rgb(224, 203, 174)
+        }
+    </style>
+
+    <script>
+        var a_app_nummern = [11127540, 14129948];
+        akt_nr = 0;
+    </script>
+</head>
+
+<body>
+    <div id="custom-task-panel">
+        <button onClick="document.getElementById('custom-task-panel').style.display='none';">
+            &times;
+        </button>
+        <h1 id="app-title"></h1>
+        <p id="app-task"></p>
+        <!-- <img src="https://avatars.dicebear.com/api/pixel-art/dev123.svg" alt="avatar" /> -->
+    </div>
+
+    <div id="custom-feedback-panel">
+        <button onClick="document.getElementById('custom-feedback-panel').style.display='none';">
+            &times;
+        </button>
+        <p id="app-feedback"></p>
+        <!-- <img src="https://avatars.dicebear.com/api/pixel-art/dev123.svg" alt="avatar" /> -->
+    </div>
+    <div id="custom-check-solution-btn">Prüfe die Richtigkeit!</div>
+    <div id="results"></div>
+
+    <div id="cont_butt">
+        <button class='hpt' onclick="get_apps_vs(32)">GET-apps-EL</button>
+        <button class='hpt' onclick="get_apps_vs(1)">GET-apps-VS</button>
+    </div>
+
+    <!-- <iframe id="LearningApp" src="about:blank" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe> -->
+    <iframe id="LearningApp" src="about:blank"></iframe>
+    <div style='padding:1%' id="LearningAppData" contenteditable="true" onblur="nohtml(this)"></div>
+
+    <script>
+        // var a_app_nummern = [11127540, 14129948];
+        var a_app_nummern = [11127540, 14129948];
+        akt_nr = 0;
+        let offset = 0;
+        let filt_kateg = 0;
+        let a_categ = [];
+        let old_anzahl = 0;
+        let categ_zeiger = 0;
+
+        // categ_zeiger = 15;
+
+        const x2js = new X2JS();
+
+
+
+        function nohtml(obj) {
+
+            function regi(str) {
+                const regex = /\/([0-9]{8,9})/gm;
+
+                // Alternative syntax using RegExp constructor
+                // const regex = new RegExp('\\\/([0-9]{8,9})', 'gm')
+
+                // const str = `https://learningapps.org/34369992`;
+
+                a_ret = [];
+                let m;
+
+                while ((m = regex.exec(str)) !== null) {
+                    // This is necessary to avoid infinite loops with zero-width matches
+                    if (m.index === regex.lastIndex) {
+                        regex.lastIndex++;
+                    }
+
+                    // The result can be accessed through the `m`-variable.
+                    m.forEach((match, groupIndex) => {
+                        console.log(`Found match, group ${groupIndex}: ${match}`);
+                        if (groupIndex == 1) {
+                            a_ret.push(match)
+                        }
+                    });
+
+                }
+                return a_ret;
+
+            }
+            htm = $(obj).html();
+
+            console.log(htm)
+            txt = $(obj).text();
+            if (htm.includes("http")) {
+                if (htm != txt) {
+
+
+                    // a_htm = htm.split(".org/");
+                    // a_htm.forEach(element => {
+                    //     $(obj).append(element[1]);
+                    // });
+
+                    $(obj).text("1," + regi(txt));
+
+                }
+            }
+        }
+
+
+
+        $(document).ready(function () {
+
+            // <results>
+            //  <app id="34067467" title="Zahlenmauer bis 100" task="Berechne insgesamt 3 Beispiele zu Zahlenmauern" created="2024-02-15 00:08:02" changed="2024-02-15 00:11:27" author="User14016999" levels="1" 
+            // language="DE" category="2" subcategory="810"  tags="Mathematik" image="https://learningapps.org/appicons/thumbs.php?id=34067467" iframeurl="//LearningApps.org/watch?app=34067467" url="https://learningapps.org/34067467" />
+            // </results>
+            // SELECT * FROM `lapps_apps` where id=34067603 
+            // SELECT * FROM `lapps_apps` where id=34067467
+            //https://learningapps.org/view34067603
+
+            // hole_neueste_apps_runde();
+            a_befehle = [
+                [0, "appdata", 0],
+                [1, "api.php?getcategories", 0],
+                [2, "api.php?getlevels", 0],
+                [3, "api.php?search=s", 0],
+                [4, "api.php?search=s&category=0&offset=0", 0],
+                [5, "api.php?search=s&category=0&subcategory=0&offset=0", 0],
+
+                // "api.php?getapps&category=1&offset=0",
+                [6, "api.php?getapps&category=0&offset=0", 0],
+
+                [7, "api.php?getapps&category=2&subcategory=810&offset=0", 0],
+                [8, "api.php?getapps&category=0&subcategory=0&offset=0&levelStart=1&levelEnd=32", 0],
+                [9, "api.php?gettemplates", 0], //9
+
+                [10, "api.php?createapp&template=71", 0],
+                [11, "api.php?getappbyid=p3rfvfe8k18", "p3rfvfe8k18"],
+                [12, "api.php?getappbyguid=GUID", "pp333kejj18"],
+                [13, "api.php?getuserapps", 0],
+                [14, "abholen automat", 0],
+                [15, "abholen subcateg(810)", 0],
+                [16, "zerlege sammmlung", 4650179],
+                [17, "Besondere-Bischof", 34316874],
+                [18, "Set Attribute in DB", 34316874],
+
+            ];
+
+            // (will require an active session with login first)
+
+            // https://learningapps.org/api.php
+
+            a_befehle.forEach(function (a_wert, i) {
+                // console.log(item);
+                hg_farbe = "";
+                if ([6, 14, 7, 15, 16, 17].includes(i)) {
+                    // $("#cont_butt").append("<hr>");
+                    hg_farbe = "background: lightgreen";
+                }
+                $("#cont_butt").append(
+                    `<button onclick='show_api(\"${a_wert[1]}\",${i},\"${a_wert[2]}\")' style='${hg_farbe}' >${a_wert[1]} (${i})</button>`
+                );
+
+
+            });
+
+            // appaufruf ############################
+            css_adr = encodeURIComponent(
+                "https://baa.at/projekte/versuche/learningApps/style.css"
+            );
+            // src=`https://learningapps.org/watch?app=${a_app_nummern[akt_nr]}&v=px3wnnzk516&css=${css_adr},%23usabilityHint,%23AppClientHelpButton,%23checkSolutionBtn,%23AppClientFullscreenButton,%23AppClientTaskButton,%23AppClientTaskPanel,%23feedback { display:none !important; }`;
+            src = `https://learningapps.org/watch?app=${a_app_nummern[akt_nr]}&v=px3wnnzk516&css=${css_adr}`;
+
+
+            // src = "https://learningapps.org/login?form&lang=EN";
+
+            // $("#LearningApp").attr("src", src);
+            // appaufruf ############################
+            // $("#LearningAppData").attr("src", src);
+        });
+
+
+        function show_api(param, api, id) {
+            src = `https://learningapps.org/data?app=${a_app_nummern[akt_nr]}`;
+            $("#LearningAppData").attr("src", src);
+
+
+
+
+            if ((api == 11) || (api == 12)) {
+                src = `https://learningapps.org/watch?app=${id}&v=${id}&css=${css_adr}`;
+                $("#LearningApp").attr("src", src);
+
+                src = "https://learningapps.org/data?jsonp=1&id=pp333kejj18&version=31";
+
+            }
+
+            if (api == 14) {
+                hole_neueste_apps_runde(14);
+                return false;
+            }
+            if (api == 15) {
+                hole_neueste_apps_runde(15);
+                return false;
+            }
+            if (api == 16) {
+
+                zerlege_sammlung(id);
+                return false;
+            }
+
+            if (api == 17) { //bischof
+                let aliste = $('#LearningAppData').text().split(",");
+                let m_sstufe = aliste[0];
+                aliste[0] = aliste[1]; //verdoppelung des 1
+                let t_src = "https://baa.at/projekte/dc/.allgemein/lapps_finde_code.php?aliste=" + aliste;
+                if ($("#LearningAppData").text() == "") {
+                    alert("LAPPS-Adressen unterhalb in eintragen - zB.: https://learningapps.org/34370437")
+                    return false;
+                } else {
+                    fetch(t_src)
+                        .then((response) => response.text())
+                        .then((txt) => {
+                            speichere_sammlung(txt.split(","), m_sstufe);
+
+                            console.log("a_apps", txt.split(","));
+                        })
+                        .catch((error) => {
+                            console.error("Fehler beim Abrufen der Kategorien:", error);
+                        });
+
+                        setTimeout(() => {
+                            set_analyse(0);    
+                        }, 5000);
+                        
+
+                }
+
+
+                // alert("leider muss hier der interncode zuerst gefunden werden: https://baa.at/projekte/dc/.allgemein/lapps_finde_code.php");
+
+                // window.open(t_src);
+
+                // a_app_nummern = ["pbc1axopt24", "pbc1axopt24", "pt7iwznb224", "p2wq2umza24", "pc8tkphya24", "pcq8of07t24", "pwww2m4ic24"];
+                // a_app_nummern.unshift(a_app_nummern[0]);
+
+                // speichere_sammlung(a_app_nummern, 0);
+                return false;
+            }
+
+            if (api == 18) { //bischof
+                set_analyse(1);
+                return false;
+            }
+
+
+
+            if (api == 0) {
+                src = `https://learningapps.org/data?app=${a_app_nummern[akt_nr]}`;
+                $("#LearningAppData").attr("src", src);
+            } else {
+                src = `https://learningapps.org/${param}`;
+
+
+
+                $("#LearningAppData").text("");
+
+                if (api == 1) src = "kategorien.json";
+
+                if (api == 6) {
+
+                    param = `api.php?getapps&category=${a_categ[categ_zeiger]}&offset=${offset}`;
+                    src = `https://learningapps.org/${param}`;
+                    // console.log(par);
+                    offset = offset + 100;
+
+                }
+
+                if (api == 5) {
+                    console.log(param);
+                }
+                if (api == 9) {
+                    src = "templates.xml";
+                }
+
+                $scope = fetch(src)
+                    // .then((response) => response.json())
+                    // .then((jsonObject) => {
+                    .then((response) => response.text())
+                    .then((xml) => {
+                        // console.log(xml);
+                        const jsonObject = x2js.xml_str2json(xml);
+                        // console.log("json:", jsonObject);
+
+
+
+                        if ((api == 11) || (api == 12)) { //templates
+                            a_apps = [];
+
+                            $.each(jsonObject, function (key, val) { //results
+
+                                $.each(val, function (key, val) {
+                                    console.log("val", val)
+                                    if (key == "template") {
+                                        // console.log(key + " >>> Übersicht >>> " + val, "\n");
+                                        // console.log("------------------------------------------------------");
+                                        $.each(val, function (key, val) {
+                                            let arr = [val['_id'], val['_name'], val['_description'], val['_image']];
+                                            console.log(val['_id'] + "," + val['_name'] + "," + val['_description'] + "," + val['_image'])
+                                            a_apps.push(arr)
+                                        })
+                                    }
+                                })
+                            });
+                            str = "";
+                            a_apps.forEach(function (elem) {
+                                str = str + elem.join("#") + "\n";
+                            })
+                            console.log(str);
+                        }
+
+
+                        if (api == 9) { //templates 10 = createtemplates
+                            a_apps = [];
+
+                            $.each(jsonObject, function (key, val) { //results
+                                $.each(val, function (key, val) {
+                                    if (key == "template") {
+                                        // console.log(key + " >>> Übersicht >>> " + val, "\n");
+                                        // console.log("------------------------------------------------------");
+                                        $.each(val, function (key, val) {
+                                            let arr = [val['_id'], val['_name'], val['_description'], val['_image']];
+                                            console.log(val['_id'] + "," + val['_name'] + "," + val['_description'] + "," + val['_image'])
+                                            a_apps.push(arr)
+                                        })
+                                    }
+                                })
+                            });
+                            str = "";
+                            a_apps.forEach(function (elem) {
+                                str = str + elem.join("#") + "\n";
+                            })
+                            console.log(str);
+                        }
+
+
+
+                        if (api == 1) { //kateg holen
+                            a_kateg = [];
+                            $.each(jsonObject, function (key, val) {
+                                $.each(val, function (key, val) {
+                                    if (key == "category") {
+                                        console.log(key + " >>> Übersicht >>> " + val, "\n");
+                                        console.log("------------------------------------------------------");
+                                        $.each(val, function (key, val) {
+
+                                            console.log(key, "k:", '0', val['_id'], val['_name'])
+                                            a_kateg.push(['0', val['_id'], val['_name']])
+                                            let hk = val['_id'];
+                                            $.each(val, function (key, val) {
+                                                if (key == "subcategory") {
+                                                    console.log("====================================================");
+                                                    $.each(val, function (key, val) {
+                                                        console.log(key + " sub ", hk, val['_id'], val['_title']);
+                                                        a_kateg.push([hk, val['_id'], val['_title']])
+                                                        // $.each(val, function (key, val) {
+                                                        //     console.log(key + " >>> " + val);
+                                                        // })
+                                                    })
+                                                } else {
+                                                    // console.log(key + " KKKK " + val);
+                                                }
+                                                // console.log(key + " detail " + val);
+                                                // $.each(val, function (key, val) {
+                                                //     console.log(key + " klein " + val);
+
+                                            })
+                                        })
+                                    }
+                                })
+                            });
+                            $("#LearningAppData").append(a_kateg.join("<br>"));
+
+                        }
+
+                        if ((api >= 3) && api < 10) { //apps
+                            a_apps = [];
+                            $.each(jsonObject, function (key, val) { //results
+                                $.each(val, function (key, val) {
+                                    if (key == "app") {
+                                        console.log(key + " >>> Übersicht >>> " + val, "\n");
+                                        // console.log("------------------------------------------------------");
+                                        $.each(val, function (key, val) {
+                                            let arr = [val['_id'], val['_title'], val['_task'], val['_changed'], val['_category'], val['_subcategory'], val['_levels'], val['_tags'], val['_author'], val['_language']];
+
+                                            console.log("Erg:", val);
+                                            if (Number(val['_id']) == 4650179) {
+                                                alert("stop");
+                                            }
+                                            a_apps.push(arr)
+                                        })
+                                    }
+                                })
+                            });
+                            // $("#LearningAppData").append("<br>" + a_apps + "<br>");
+
+                            sende = { flag: 'save_apps', "daten": a_apps };
+                            fetch('https://baa.at/projekte/versuche/learningApps/lib/api_lapps.php', {
+                                method: 'POST',
+                                body: JSON.stringify(sende)
+                                // body: JSON.stringify(flag)
+                            })
+                                .then(response => response.text())
+                                .then(result => {
+                                    console.log('Server:', param, result);
+                                    a = Number(result);
+                                    if (a == old_anzahl) {
+                                        categ_zeiger++;
+                                        offset = 0;
+                                    }
+                                    old_anzahl = a;
+                                })
+                                .catch(error => {
+                                    console.error('Fehler beim Senden der Daten:', error);
+                                });
+
+                            console.log('ende');
+                        }
+
+
+
+                    })
+
+                    .catch((error) => {
+                        console.error("Fehler beim Abrufen der Kategorien:", error);
+                    });
+            }
+        }
+
+        function hole_neueste_apps(categ, api, nr = 0) {
+            if (api == 14) {
+                param = `api.php?getapps&category=${categ}&offset=${offset}`;
+                src = `https://learningapps.org/${param}`;
+            }
+            if (api == 15) {
+                param = `api.php?getapps&category=${categ}&subcategory=810&offset=${offset}`;
+                src = `https://learningapps.org/${param}`;
+            }
+            if (api == 17) {
+
+                src = `https://learningapps.org/data?app=${a_app_nummern[nr]}`;
+                src = `https://learningapps.org/api.php?getappbyid=${a_app_nummern[nr]}`;
+
+                // $("#LearningAppData").attr("src", src);
+            }
+
+            offset = offset + 100;
+
+            fetch(src)
+                // .then((response) => response.json())
+                // .then((jsonObject) => {
+                .then((response) => response.text())
+                .then((xml) => {
+                    // console.log("xml", xml);
+                    // console.log("src", src);
+                    const jsonObject = x2js.xml_str2json(xml);
+                    console.log("json:", jsonObject);
+
+                    a_apps = [];
+                    $.each(jsonObject, function (key, val) { //results
+                        $.each(val, function (key, val) {
+                            if (key == "app") {
+                                $.each(val, function (key, val) {
+                                    let arr = [val['_id'], val['_title'], val['_task'], val['_changed'], val['_category'], val['_subcategory'], val['_levels'], val['_tags'], val['_author'], val['_language']];
+                                    a_apps.push(arr)
+
+                                    if (Number(val['_id']) == 4650179) {
+                                        // alert("stop");
+                                        clearInterval(cat_int);
+                                        return false;
+
+                                    }
+
+
+                                })
+                            }
+                        })
+                    });
+                    // $("#LearningAppData").append("<br>" + a_apps + "<br>");
+                    //speichere neueste
+                    sende = { flag: 'save_apps', "daten": a_apps };
+                    fetch('https://baa.at/projekte/versuche/learningApps/lib/api_lapps.php', {
+                        method: 'POST',
+                        body: JSON.stringify(sende)
+                    })
+                        .then(response => response.text())
+                        .then(result => {
+                            // console.log('Antwort vom Server:', result);
+                            let a = Number(result);
+                            if (a == old_anzahl) {
+                                if (api == 14) {
+                                    categ_zeiger++;
+                                    offset = 0;
+                                }
+                                if (api == 15) {
+                                    categ_zeiger++;
+                                }
+                            }
+                            old_anzahl = a;
+                            console.log('Rundenende:', param, a);
+                        })
+                        .catch(error => {
+                            console.error('Fehler beim Senden der Daten:', error);
+                        });
+
+                })
+
+                .catch((error) => {
+                    console.error("Fehler beim Abrufen der Kategorien:", error);
+                });
+
+        }
+
+
+
+
+
+
+        let cat_int = 0;
+        function hole_neueste_apps_runde(api) {
+            // return false;
+            // categ_zeiger = 0;
+
+            function zentral() {
+                if (categ_zeiger < ende) {
+                    hole_neueste_apps(a_categ[Math.max(0, categ_zeiger)], api);
+                    // categ_zeiger++;
+                } else {
+                    clearInterval(cat_int);
+                    console.log("----------- fertig ----------------");
+                }
+
+            }
+
+
+            if (api == 14) {
+                a_categ = [0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 76, 77, 78, 79, 80, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92];
+            }
+
+            if (api == 15) {
+                a_categ = [2];
+                categ_zeiger = -5;
+            }
+
+
+
+
+
+            let ende = a_categ.length;
+            zentral();
+            // ende=1;
+            cat_int = setInterval(() => {
+                zentral();
+            }, 3000)
+        }
+
+
+        ///////////////////////////////////////////////////////////////////////////////
+        /// https://learningapps.org/11127540
+        /// STYLING BY STRING
+        /// SEE the SRC on the iframe in HTML Part
+        ///////////////////////////////////////////////////////////////////////////////
+        /// FOR EXAMPLE: append "&cssString=body{ background:red !important;}" to the
+        /// url in the embedded LearningApp, to overwrite Template-Styles
+        /// remember to encode the cssString-Part (# becomes %23)
+        ///////////////////////////////////////////////////////////////////////////////
+        /// STYLING BY FILE
+        /// FOR EXAMPLE: append "&css=https://YOURDOMAIN.TLD/style.css"
+        ///////////////////////////////////////////////////////////////////////////////
+        /// IF YOU WANT A CLEAN APP WITHOUT BUTTONS, HIDE THE FOLLOWING IDs
+        /// #checkSolutionBtn,
+        /// #feedback
+        /// #usabilityHint
+        /// #AppClientTaskPanel
+        /// #AppClientHelpButton
+        /// #AppClientTaskButton
+        /// #AppClientFullscreenButton
+        /// and make them { display:none !important }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        /// HANDLE MESSAGES
+        ///////////////////////////////////////////////////////////////////////////////
+        /// AN EMBEDED LEARNINGAPP SENDS MULTIPLE MESSAGES TO THE WINDOW THAT EMBEDS IT
+        /// YOU CAN LISTEN TO THESE MESSAGES BY IMPLEMENTING AN EVENTLISTENER
+        /// HINT: this listener receives ALL messages; if you have more such messages
+        /// you have to filter, which are learningapp-specific
+        /// THE FOLLOWING EXAMPLE SHOWS ALL OF THE MESSAGES FROM LEARNINGAPPS-TEMPLATES
+        ///////////////////////////////////////////////////////////////////////////////
+
+        ///////////////////////////////////////////////////////////////////////////////
+        window.addEventListener("message", function onMessage(e) {
+            if (event.data && event.data.split) {
+                // messages sent from LearningApps-Template are strings divided by the seperator "|"
+                var msg = event.data.split("|");
+                // we have an array; each index represents the following
+                console.table("Message", msg);
+
+                // MESSAGE
+                var cmd = msg[0];
+                if (cmd === "AppReady") {
+                    // just react or ignore; no more parameters
+                    return;
+                }
+                if (cmd === "AppTitle") {
+                    var appTitle = msg[1];
+                    // add title to our custom panel
+                    document.getElementById("app-title").innerText = appTitle;
+                    return;
+                }
+                if (cmd === "AppTask") {
+                    var appTask = msg[1];
+                    // add task to our custom task panel
+                    document.getElementById("app-task").innerText = appTask;
+                    // show our custom task panel
+                    document.getElementById("custom-task-panel").style.display =
+                        "none";
+                    return;
+                }
+                if (cmd === "AppFeedback") {
+                    var appFeedback = msg[1];
+                    // add feedback to our custom feedback panel
+                    document.getElementById("app-feedback").innerText = appFeedback;
+                    return;
+                }
+                // is send, when all answers are given but not necessarily checked yet
+                if (cmd === "AppCompleted") {
+                    // alert("Task is complete, show your Button and click it");
+                    // use to show your own "Check Solution" Button
+                    document.getElementById(
+                        "custom-check-solution-btn"
+                    ).style.display = "none";
+
+                    var learningAppIFrame = document.getElementById("LearningApp");
+                    // send this specific message to the iframe and trigger a checkSolution
+                    learningAppIFrame.contentWindow.postMessage("checkSolution", "*");
+
+                    //                     // setTimeout(()=>{
+                    // var learningAppIFrame = document.getElementById('LearningApp');
+                    //     // send this specific message to the iframe and trigger a checkSolution
+                    // learningAppIFrame.contentWindow.postMessage("checkSolution", '*');
+                    // // },1000)
+
+                    return;
+                }
+                // is send, when the AppCompleted State changes back to AppIncompleted
+                if (cmd === "AppIncompleted") {
+                    // use to hide your own "Check Solution" Button
+                    document.getElementById(
+                        "custom-check-solution-btn"
+                    ).style.display = "none";
+
+                    return;
+                }
+                // is send, when the current state of the app is checked on its results
+                // AppChecked|AppId|timeNeededinSeconds|WrongAndCorrectAnswers
+                // AppChecked|1207658|20|1;0;1;1;0;0
+                if (cmd === "AppChecked") {
+                    // alert("App was checked, show results and feedback")
+
+                    var appId = msg[1];
+                    var timeNeededInSeconds = msg[2];
+                    var results = msg[3];
+
+                    //////////////////////////////////////////
+                    // for further processing of the results
+                    //////////////////////////////////////////
+                    results = results.split(";");
+
+                    console.log("res:", results);
+                    var correctAnswers = 0;
+                    for (var i = 0; i < results.length; i++) {
+                        if (results[i] == 1) {
+                            correctAnswers++;
+                        }
+                    }
+
+                    var correctAnswersInPercent =
+                        (correctAnswers * 100) / results.length;
+                    document.getElementById("results").style.display = "block";
+                    document.getElementById("results").innerHTML =
+                        correctAnswersInPercent + "% ist richtig";
+                    /////////////////////////////////////////
+
+                    return;
+                }
+                // is send, when each element has a solution (app ends)
+                // AppSolved|AppId|timeNeededinSeconds|WrongAndCorrectAnswers
+                // AppChecked|1207658|20|1;0;1;1;0;0
+                // if (cmd === "AppSolved") {
+                //     // show our custom feedback panel
+                //     document.getElementById('custom-feedback-panel').style.display = "block";
+                //     return;
+                // }
+            }
+            return;
+        },
+            false
+        );
+
+        document.getElementById("custom-check-solution-btn").addEventListener("click", function () {
+            // access the contentWindow
+            var learningAppIFrame = document.getElementById("LearningApp");
+            // send this specific message to the iframe and trigger a checkSolution
+            learningAppIFrame.contentWindow.postMessage("checkSolution", "*");
+        });
+
+
+
+
+        //########################################### speichern
+        function speichern_apps(a_apps) {
+            // alert("speichern"+a_apps)
+
+            // console.error(a_apps);
+            // return false;
+
+
+
+            sende = { flag: 'save_apps', "daten": a_apps };
+            // fetch('https://baa.at/projekte/versuche/learningApps/lib/api_lapps.php', {
+            fetch('../assets/html/lib/api_lapps.php', {
+                method: 'POST',
+                body: JSON.stringify(sende)
+            })
+                .then(response => response.text())
+                .then(result => {
+                    console.log('Nach der Serverspeicherung:', result);
+                })
+                .catch(error => {
+                    console.error('Fehler beim Senden der Daten:', error);
+                });
+        }
+
+        function zerlege_sammlung(id) {
+            src = `https://learningapps.org/data?app=${id}`;
+            fetch(src)
+                .then((response) => response.json())
+                .then((jsonObject) => {
+                    console.log("json:", jsonObject);
+                    a_app_nummern = [`${id}`];
+                    $.each(jsonObject, function (key, wert) { //results
+                        console.log(key, "=", wert)
+                        if (key == "initparameters") {
+
+                            const encodedUrl = wert;
+                            const decodedUrl = decodeURI(encodedUrl);
+                            // Aufteilen der dekodierten URL in ein Array
+                            const urlParams = new URLSearchParams(decodedUrl);
+                            const paramsArray = Array.from(urlParams.entries());
+
+                            // console.log(paramsArray);
+
+                            $.each(paramsArray, function (key, wert) {
+                                // console.log(key, wert[0], wert[1])
+
+                                vname = wert[0];
+                                inhalt = wert[1];
+                                if (vname.substr(0, 3) == "app") {
+
+                                    a_app_nummern.push(inhalt.split("=")[1])
+                                }
+                                $.each(wert, function (key, val) {
+                                    // console.log(key,val[0],val[1])
+                                })
+                            })
+                        }
+
+
+                    });
+
+                    speichere_sammlung(a_app_nummern);
+
+                })
+
+                .catch((error) => {
+                    console.error("Fehler beim Abrufen der Kategorien:", error);
+                });
+
+
+
+
+        }
+
+        function speichere_sammlung(a_app_nummern, m_sstufe = 1) {
+            console.log("sammlung:", a_app_nummern)
+
+            a_apps = [];
+            let i = 0;
+            if (a_app_nummern.length > 0) {
+
+                $.each(a_app_nummern, (idx, wert) => {
+                    // "api.php?getappbyguid=GUID", "pp333kejj18"],
+
+                    src = `https://learningapps.org/api.php?getappbyguid=${wert}`;
+                    guid = wert;
+                    if (Number.isInteger(wert)) {
+                        src = `https://learningapps.org/api.php?getappbyid=${wert}`;
+                    }
+                    // if (idx == 0) {
+                    //     src = `https://learningapps.org/api.php?getappbyid=${wert}`;
+                    // }
+                    console.log("src=", src);
+                    // alert(src)
+                    fetch(src)
+                        // .then((response) => response.json()).then((jsonObject) => {
+                        .then((response) => response.text())
+                        .then((xml) => {
+                            // console.log(xml);
+                            const jsonObject = x2js.xml_str2json(xml);
+
+                            // console.log("json1:", jsonObject);
+                            // console.log("json2:", xmlToJson(xml));
+                            // console.log("----------------- prog ")
+
+                            // let _category0 = 2, _subcategory0 = 810, _levels0 = 0;
+
+                            $.each(jsonObject, function (key, wert) { //results
+                                // console.log("key:", key, "= ergebnis:", wert)
+                                $.each(wert, function (key, wert) { //results
+
+                                    if (key == "app") {
+                                        // console.log("akey:", key, "= ergebnis:", wert)
+                                        if ((idx == 1110)) {
+                                            console.error(wert['_category']);
+                                            _category0 = wert['_category'];
+                                            _subcategory0 = wert['_subcategory'];
+                                            _levels0 = wert['_levels'];
+
+                                        } else {
+
+                                            _category0 = wert['_category'];
+                                            _subcategory0 = wert['_subcategory'];
+                                            _levels0 = wert['_levels'];
+
+                                            let arr = [wert['_id'], wert['_title'], wert['_task'], wert['_changed'], _category0, _subcategory0, _levels0, wert['_tags'], wert['_author'], wert['_language'], m_sstufe, guid];
+                                            a_apps.push(arr)
+                                            // console.log("ja", arr)
+                                        }
+
+                                    }
+                                });
+                            });
+
+                            // console.log("a_apps:", a_apps)
+                            if (idx == a_app_nummern.length - 1) {
+                                speichern_apps(a_apps);
+                            }
+
+
+
+                        })
+
+                        .catch((error) => {
+                            console.error("Fehler beim Abrufen der Kategorien:", error);
+                        });
+
+                })
+
+
+            }
+
+        }
+
+
+        function get_data(id) {
+            json_file = "https://learningapps.org/data?app=${id}";
+            $json = file_get_contents($json_file);
+            $arr = json_decode($json, TRUE);
+            // echo $arr[0];
+
+
+
+            $init = $arr['initparameters'];
+            $tool = $arr['tool'];
+            $version = $arr['version'];
+            // $path=$arr['path'];
+
+
+
+        }
+
+
+        function get_apps_vs(level) {
+            src = "https://baa.at/projekte/versuche/learningApps/lib/api_lapps.php";
+
+            sende = { "flag": 'get_vs', "level": level };
+            fetch(src, {
+                method: 'POST',
+                body: JSON.stringify(sende)
+            })
+
+                .then((response) => response.json())
+                .then((jsonObject) => {
+                    console.log(jsonObject)
+
+                })
+
+                .catch((error) => {
+                    console.error("Fehler beim Abrufen der Kategorien:", error);
+                });
+
+        }
+
+
+        window.addEventListener("message", function (e) {
+            if (e.data.indexOf("LEARNINGAPP") === 0) {
+                var parts = e.data.split("|");
+                console.log("new app created with GUID: " + parts[2]);
+            }
+            if (e.data == "LearningApps_LoginSuccessfull") {
+                alert("login")
+                console.log(e)
+
+                // param = `api.php?getapps&category=${categ}&offset=${offset}`;
+                param = "api.php?getuserapps";
+                src = `https://learningapps.org/${param}`;
+
+                fetch(src)
+                    // .then((response) => response.json())
+                    // .then((jsonObject) => {
+                    .then((response) => response.text())
+                    .then((xml) => {
+                        // console.log(xml);
+                        const jsonObject = x2js.xml_str2json(xml);
+                        // console.log("json:", jsonObject);
+
+                        a_apps = [];
+                        $.each(jsonObject, function (key, val) { //results
+                            $.each(val, function (key, val) {
+                                if (key == "app") {
+                                    $.each(val, function (key, val) {
+                                        let arr = [val['_id'], val['_title'], val['_task'], val['_changed'], val['_category'], val['_subcategory'], val['_levels'], val['_tags'], val['_author'], val['_language']];
+                                        a_apps.push(arr)
+                                    })
+                                }
+                            })
+                        });
+                        // $("#LearningAppData").append("<br>" + a_apps + "<br>");
+                        //speichere neueste
+                    })
+
+                    .catch((error) => {
+                        console.error("Fehler beim Abrufen der Kategorien:", error);
+                    });
+
+            }
+        })
+
+        function set_analyse(flag) {
+            src = "../assets/html/lib/api_lapps.php?flag=make_analyse";
+            if (flag) {
+                window.open(src);
+            } else {
+                sende = { "flag": 'make_analyse' };
+                fetch(src, {
+                    method: 'POST',
+                    body: JSON.stringify(sende)
+                })
+                    .then((response) => response.text())
+                    .then((txt) => {
+                        // console.log(txt);
+                        $("#learningAppData").html(txt);
+                    })
+                    .catch((error) => {
+                        console.error("Fehler beim Abrufen der Kategorien:", error);
+                    });
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

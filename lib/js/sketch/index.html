@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />   -->
+
+    <!-- <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="themes/baa_02_grau.min.css" />
+    <link rel="stylesheet" href="themes/images/jqm-icon-pack-fa.css" />
+ -->
+
+    <link rel="stylesheet" href="sk.min.css" />
+    <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+    <script src="../../dc_all.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script> -->
+    <!-- <script src="simple_sketch.min.js"></script> -->
+    <!-- <script src="sk.min.js"></script> -->
+    <script>
+        // var isTouch = 0;
+        // var ww = $(window).width() / 2;
+        // var wh = $(window).height();
+        // var vfh = $(window).height() / 3 * 2;
+        $(document).ready(function() {
+            canvas_on = 1;
+            canvas_init();
+        });
+        function nachladen_sketch() {
+            if (sketch_loaden!=true) {
+                let script = document.createElement('script');
+                script.src = "simple_sketch.min.js";
+                document.body.append(script); 
+                script = document.createElement('script');
+                script.src = "sk.min.js";
+                document.body.append(script); 
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-color: #333;
+            display:flex;
+            font-family: Arial, Helvetica, sans-serif;
+            /* flex-direction: column; */
+        }
+        
+        #men_haupt {
+            /* position: absolute; */
+            left: 15vw;
+            /* right: 0px; */
+            width: 40vw;
+            top: 0vh;
+            height: 50vh;
+            border: 4px solid rgb(171, 235, 171);
+            padding: 0px;
+        }
+
+               
+        #men_menue {
+            /* position: absolute; */
+            width: 120px;
+            height: 195vh;
+            border: 1px solid rgb(171, 235, 171);
+            padding: 0px;
+        } 
+
+    </style>
+
+</head>
+
+<body>
+    <!-- <div id='tools_container'></div> -->
+    <!-- <iframe id="men_menue" src="about:blank" name="men_menue"></iframe>
+    <iframe id="men_haupt" src="about:blank"></iframe> -->
+    <!-- <canvas id="simple_sketch" width="500" height="100vh"></canvas> -->
+    <audio id="myClick">
+        <source src="assets/sounds/click.mp3" type="audio/mpeg">
+        <source src="assets/sounds/click.ogg" type="audio/ogg">
+    </audio>
+</body>
+
+</html>

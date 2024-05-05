@@ -1,0 +1,235 @@
+/* CSS Document
+show_pdf ruft diese Datei
+*/
+
+@import url("https://baa.at/projekte/dc/lib/styles/htm_contents_gem.css"); 
+/* @import url("https://baa.at/projekte/dc/lib/js/quest/styles/math_norm.css");  */
+
+/* html * { */
+    /* font-size:4em; */
+    /* box-sizing: border-box; */
+    /* color:#333; */
+    /* font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+    /* font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji"; */
+    /* font-family:'Verdana'; */
+/* } */
+
+body {
+    /* width:100%; */
+    /* font-size:2vw; */
+    font-size: 2.3vw;
+    /* font-size: 2.2vw; */
+    margin: 3% 5% 0 5%;
+    /* margin:5%; */
+    /* margin:0px; */
+    /* margin:5%; */
+    /* padding:5%; */
+
+    background-color:#fff;
+    line-height: 1.3;
+    /* border:1px solid red; */
+    user-select: none;
+
+}
+
+h6 {
+    margin:2px;padding:0;
+    font-weight: normal;
+    font-size: xx-small;
+}
+
+
+ul {
+    list-style-image: url('bee_birg_bullet_quer_k.png');
+    margin-bottom:2%;
+}
+
+.cke_button_save .cke_label { display: inline !important; }
+
+.rahmen {
+    
+    border-radius:8px;
+    padding:5%;
+    border:1px solid #aaa;
+    border:2px solid #ccc;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 20px 20px 15px 0px red;
+    box-shadow:  0px 0em 2em 1px gold; */
+}
+
+/* img[src*="smiley"] {
+    width:auto
+}     */
+
+
+/* .rahmen_text {
+    display:inline-block;
+} */
+
+/* p { wir müssen es ohne lassen, weil sonst die Merksätze wiede rnicht bündig sind
+    margin: 0.5em 0.5em;
+} */
+
+
+
+table {
+    font-size:inherit;
+    line-height:inherit;
+    width:100%;
+    border-collapse: collapse;
+
+    /* margin-top:2em; Abstand von ues */
+}
+
+td,th {
+    border:none;
+    /* border-bottom:1px dotted orange;
+    padding-top:1%; */
+    
+    /* padding:2%; */
+    padding-right:2%;
+
+    min-width:32px;
+    padding-bottom:1%;
+    /* font-size:1rem; */
+}
+
+
+
+td:nth-last-child(1) {
+    padding-right:0;
+} 
+
+
+
+td {
+    vertical-align: top;
+}
+
+th {
+    background-color:#eee;
+}
+
+
+.inpText {
+    padding-left:4px;
+    padding-right:4px;
+}
+
+
+.rahmen_antworten {
+    /* position:absolute;
+    left:3%; bottom:2%; */
+    border: 1px solid #aaa;
+    background-color: #f1f1f1;
+    /* background-color:green; */
+    opacity: 0.9;
+    border-radius: 4px;
+    width: 94%;
+    width: 100%;
+    text-align: center;
+    /* 13.3.16 */
+    margin-top:8px;
+    padding:0.5%;
+    border: 2px solid orange;
+    font-size:0.8em;
+    position:fixed;
+    bottom:0;
+    left:0;
+}
+
+.zuDrag {
+    border: 1px solid #aaa;
+    background-color: #ddd;
+    padding-left: 2%;
+    padding-right: 2%;
+    font-size:large;
+}
+
+.seitenumbruch {
+    display:none;
+    border:none;
+}    
+
+a {
+    /* background-color:#eee;
+    border-radius: 4px;
+    padding-left:6px;
+    padding-right:6px; */
+
+    background-color:#efefef;    
+    border-radius:4px;
+    padding:6px;
+    padding-top:1px;
+    padding-bottom:1px;
+    /* font-weight: bold; */
+    border:1px solid #ccc
+
+
+}
+
+
+table.zahlenstrahl {
+    text-align: center;
+    border: 4px solid orange;
+    /* margin:40px; */
+    /* box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4); */
+    background-image: url(../../assets/images/hg_landschaft.png);
+    background-size: cover;
+
+
+}
+
+table.zahlenstrahl td {
+    text-align: center;
+    vertical-align: bottom;
+    /* border:1px solid red; */
+    /* padding: 0px 14px 0px 14px !important */
+    padding: 0;
+    font-size: larger;
+}
+
+table.zahlenstrahl td:nth-child(even) {
+    width: 76%;
+    vertical-align: bottom
+}
+
+table.zahlenstrahl td:nth-child(odd) {
+    width: 12%;
+}
+
+table.zahlenstrahl tr:first-child td {
+    padding-top: 2%;
+
+}
+
+table.zahlenstrahl tr:last-child td {
+    padding-bottom: 2%;
+}
+
+table.zahlenstrahl img {
+    width: 97%
+}
+
+
+
+
+
+
+
+
+
+/* @media  (min-width: 1200px) { */
+/* theorie: schaltet bei druck erst beimn zweiten mal um - vergögerung? */
+/* @media screen and (min-width: 1200px) {
+	ul { 
+        list-style-image: url('bee_birg_bullet.png');
+    }
+} */
+
+@media print  {
+	ul { 
+        list-style-image: url('bee_birg_bullet_quer_k.png');
+    }
+}
+

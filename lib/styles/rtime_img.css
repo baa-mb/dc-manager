@@ -1,0 +1,15 @@
+body {width:100%;margin:0;padding:0}
+img {width:100%}
+button {
+    position:fixed;
+    right:3px;
+    top:3px;
+    font-size:1.0em;
+    opacity:0.6;
+
+}
+@media print {
+button {
+    display:none;
+}
+}

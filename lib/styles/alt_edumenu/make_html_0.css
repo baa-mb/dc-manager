@@ -1,0 +1,7 @@
+/* CSS Document */
+@import url("make_html.css");
+@media print {
+  body {
+    margin:0;padding:0;
+  }
+}

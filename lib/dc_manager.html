@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Cache-Control" content="must-revalidate">
+
+    <link rel="apple-touch-startup-image" href="../assets/icons/digi.case.apple.png">
+    <link rel="apple-touch-icon" href="../assets/icons/digi.case.apple.png">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0" />
+    <title>DC-Manager</title>
+
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/sunny/jquery-ui.css"> -->
+    <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/le-frog/jquery-ui.css">  -->
+
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+    <link rel="stylesheet" href="dc_allgemein.css">
+    <link rel="stylesheet" href="dc_manager.css">
+
+    <script type="text/javascript" src="dc_all.js"></script>
+    <script type="text/javascript" src="dc_allgemein.min.js?123"></script>
+    <script type="text/javascript" src="dc_manager.min.js?123"></script>
+    <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script> -->
+    <script type="text/javascript" src="js/printarea/printarea.js"></script>
+
+
+    <link rel="stylesheet" href="js/sketch/sk.min.css" />
+    <script src="js/sketch/simple_sketch.min.js?24"></script>
+    <script src="js/sketch/sk.min.js?24"></script>
+    <script type="text/javascript" src="js/h2c/html2canvas.js"></script>
+
+    <style>
+        body {
+            /* font-family: Arial, Helvetica, sans-serif; */
+            margin: 2%;
+            margin: 2px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <!-- <audio id="myClick">
+        <source src="assets/sounds/click.mp3" type="audio/mpeg">
+        <source src="assets/sounds/click.ogg" type="audio/ogg">
+    </audio> -->
+
+    <div id="tabs"> 
+        <ul>
+            <li id="AL"><a href="#tabs-AL">Information<br><span class="utitel">Einstellungen</span></a></li>
+            <li id="KL"><a id="KL" href="#tabs-KL">Klassen und SchülerInnen<span  id="akt_klasse_txt" class="utitel"></span></a></li>
+            <!-- <li id="SC"><a href="#tabs-SC">SchülerInnen<span id="akt_schueler" class="utitel"></span></a></li>   -->
+            <!-- onclick="chk_schueler_zahl() -->
+            <li id="WP"><a href="#tabs-WP">Wochenpläne<span id="akt_wplan_txt" class="utitel"></span></a></li>
+            <li id="UB"><a href="#tabs-UB">Übungen<span id="akt_uebung" class="utitel"></span></a></li>
+
+            <li id="vb_info">Nutzen Sie den Browser<br>im Vollbildmodus (Taste F11)</li>
+            <li style="float:right"><img title='Vollbild einschalten' id='fs_icon' onclick='toogleFullscreen()' src='../assets/icons/fullscreen_white_24_kl.png'></li>
+
+            <li id="AB" style="float:right"><a href="#tabs-AB" onclick="log_off()"><span id="login_butt2">Abmelden</span><span id="akt_lehrer_name" class="utitel"></span></a></li>
+            <li id="AM" style="float:right"><a href="#tabs-AM" ><span>Arbeitsmodus</span><span id="akt_modus" class="utitel">Basis</span></a></li>
+            <!-- <li id="AN"><a href="#tabs-AN">Klassen-<span id="xxxakt_lehrer_name" class="utitel">Auswertungen</span></a></li> -->
+            <!-- <h2 style="color:rgb(229, 255, 0)">Achtung - Servicearbeiten - Dauer bis 20:00 h - diesen Bereich bitte jetzt nicht nutzen!</h1> -->
+        </ul>
+
+        <div id="tabs-AL">
+
+            <div class="cont_haupt" style='text-align:center' href='#'>
+                <h2>Informatisches Denken im Unterricht<br>LehrerInnen-Modul</h2>
+                <div><img class="uesImg" src="../assets/icons/dc_lehrerin.png"></div>
+
+
+                <div class="cont_mitte ">
+                    <div class="cont_txt ">
+                        <div id="cont_pw">
+                            <div id="lgON">
+                                <h4>Angemeldete Lehrkraft: <span id="akt_user"></span></h4>
+                            </div>
+                            <div id="lgOFF">
+                                <button onclick="info_lehrer()">PRG-Info</button>
+                                Ihr Zugangspasswort lautet:&nbsp;&nbsp;<input id="pw_e" class='ui-input' type="password" value="" maxlength="10" onkeyup="check_user(event)">&nbsp;
+                                <button id='login_butt' onclick="login_lehrer('pw')">Userlogin</button>
+                            </div>
+                        </div>
+                        <div id="cont_theme">
+                            Aufgabenstellungen und ihre Protokollierung: Dies ist ein Projekt in der Testphase (Alpha-Version).<br>Jede Lehrkraft kann einen Account beantragen, um Wochenpläne und die anonymisierten Arbeitsdaten
+                            zu verwalten.
+                            <br><br>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="cont_email" class="hid">
+                <hr>
+                <div class="cont_haupt">
+                    <div class="cont_mitte">
+                        <div class="cont_txt">
+                            <div id="email_e">Falls Sie das digi.case-Passwort vergessen haben - bitte unterhalb Ihre Email-Adresse eintragen - dorthin wird ihr Passwort bei Übereinstimmung mit der Datenbank geschickt:
+                                <br><br>
+                                <input id="email_e" class='ui-input p100' type="text" value="xxx@yyy">
+                            </div>
+                        </div>
+                        <div class="cont_butt_re">
+                            <button>Absenden</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Klassen -->
+        <div id="tabs-KL">
+            <div class="cont_haupt">
+
+                <div class="cont_full">
+                    <div class="cont_half">
+                        <div class="info_oben">
+                            <p class="ues">Diese Klassen werden derzeit verwaltet:</p>
+                            Bitte legen Sie nur so viele Klassen an, wie sie definitiv auch mit digi.case verwenden werden. Für die SchülerInnen ist der <b>Klassencode</b> wichtig.
+                            <!-- Wird die Anzahl der SchülerInnen im Nachhinein vermindert, dann werden auch alle Übungsdaten der betroffenen SchülerInnen gelöscht! -->
+
+                        </div>
+                        <!-- leider keine mehrzahl erlaubT -->
+                        <div id="cont_klasse" class="cont_elemente"></div>
+                        <span id="alpha_txt">Tipp für Alpha-TesterInnen: Legen Sie eine Testklasse mit 1-3 SchülerInnen an und testen damit das Programm. Ihre "echten" Klassen sollten nur Wochenpläne zum konkreten Arbeiten enthalten.<br></span>
+                        <div class="button_pool">
+                            <button class="bef" onclick="system_info()">Info</button>
+                            <button class="bef tarn hid" onclick="klassen_show('neu')">Neue Klasse anlegen</button>
+                            <button class="bef notTarn" onclick="set_klassen_edit()">Klassendaten ändern/erweitern</button>
+                            <button id="k_save" class="bef tarn hid" onclick="klassen_save()"><img src='../assets/icons/save.png'/>Klassen speichern</button>
+                        </div>
+
+                    </div>
+                    <div class="cont_half">
+                        <div class="info_oben">
+                            <p class="ues">Schüler und Schülerinnen der Klasse: <span class="akt_kl"></span></p>
+                            Die Schülerzahlen der aktiven Klasse werden ergänzt/geändert, indem man im Feld die <b>Schüleranzahl</b> in der Klasse erhöht. Das jeweilige SchülerInnenprotokoll erhält man, indem man auf den SchülerInnen-Button klickt!
+                        </div>
+
+                        <div id="cont_schueler" class="cont_elemente">
+
+                        </div>
+
+                        <div class="button_pool">
+                            <button class="bef" onclick="get_schueler_qr_liste()">SchülerInnenliste</button>
+                            <button class="bef hid" id='SL_druck' onclick="schueler_print()">SchülerInnenliste drucken</button>
+                        </div>
+                    </div>
+                </div>
+                <br><br>
+                <div id="cont_protok" class="cont_elemente printArea">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- wplan -->
+        <div id="tabs-WP">
+            <div class="cont_haupt">
+                <p class="ues">Die Wochenpläne der Klasse '<span class="akt_kl"></span>'</p>
+                Bitte legen Sie hier Wochepläne an - jeder Wochenplan kann dann später über den Reiter <b>Übungen</b> mit neuen Übungen versehen werden. Bitte verwenden Sie sehr kurze Bezeichnungen für die Wochenpläne (max. 20 Zeichen) - mit Bindesstrichen.
+                Die WP werden den SchülerInnen immer datumsmäßig alphabetisch absteigend präsentiert. Externe Angebote von Wochenplänen beginnen immer mit X.
+                <div class="cont_mitte wplan">
+                    <div class="cont_txt">
+                        <div id="cont_wplan" class="cont_elemente"></div>
+                    </div>
+                    <div class="cont_butt_re_wplan">
+                        <span class="info"></span>
+                        <button class="bef notTarn" onclick="set_wplan_edit(1)">Wochenplandaten ändern</button>
+                        <button class="bef tarn hid" onclick="wplan_show('neu')">Neuer Wochenplan</button>
+                        <button class="bef tarn hid" onclick="wplan_kopie()">Wochenplan kopieren</button>
+                        <button id="w_save" class="bef tarn hid" onclick="wplan_save()"><img src='../assets/icons/save.png'/>Wochenplandaten speichern</button>
+
+                        <!-- <button class="bef"  onclick="wplan_print()">Daten drucken<br>(noch nicht fertig programmiert)</button> -->
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <p class="ues">Ergebnisse der Wochenplanübungen: <span id="akt_sc"></span></p>
+            <div id="cont_wp_protok" class="cont_elemente"></div>
+        </div>
+
+
+        <!-- Modus -->
+        <div id="tabs-AM" style='text-align:center'>
+            <div class="cont_haupt">
+                <p class="ues">
+                    <h1>Arbeitsmodus einstellen</h1><br> Es stehen zwei Arbeitsmodi zur Verfügung:<br>Der Basis-Modus und Experte/in-Modus
+                </p>
+                <br><br>Im Basis-Modus stehen alle wichtigen Funktionen zur Verfügung. <br><br> Im ExpertInnen-Modus kommen einige Erweiterungen wie Kameranutzung und Zeichenstift-Modul dazu, auch die Nutzung der Bilderdatenbank ist im Erweiterungsmodul
+                enthalten.
+                <br><br>
+                <div class="cont_mitte wplan" style='text-align:center;font-size:2em;justify-content: space-around;'>
+                    <div><button id='m0' onclick="set_modus(0)">Modus<br>Basis</button></div>
+                    <div><img class="uesImg" src="../assets/icons/biber_wuerfelbrett.png"></div>
+                    <div><button id='m1' onclick="set_modus(1)">Modus<br>ExpertInnen</button></div>
+
+                </div>
+                <h2>!!! Bitte auswählen !!!&nbsp;&nbsp;&nbsp;</h2>
+            </div>
+        </div>
+
+
+        <!-- uebungen -->
+        <div id="tabs-UB">
+            <!-- <h1 style="color:red">Achtung - Servicearbeiten - Dauer bis 23:00 h - diesen Bereich bitte jetzt nicht nutzen!</h1> -->
+            <div class="cont_haupt">
+                <!-- <p class="ues">Diese Übungen sind zum Wochenplan <span class="akt_wp"></span> enthalten: <span id="uebg_erstinfo" style="font-weight:normal">In diesem Übungsbereich können Übungen neu angelegt, geändert und in der Vorschau betrachtet werden. 
+                    Fünf leere Übungen sind zu Beginn bereits unterhalb angelegt. <b>Wichtig: </b>Auf keinen Fall eine Übungszuweisungen verändern, wenn die SchülerInnen bereits mit der Arbeit an den Übungen <b>begonnen haben</b>.</span> 
+                    </p>                
+                -->
+
+                <div class="cont_mitte" style="align-items:flex-start">
+                    <div class="cont_txt uebg">
+                        <!-- <button id="u_save" class="bef tarn hid" onclick="uebungen_save()"><img src='../assets/icons/save.png'/>Übungen speichern</button> -->
+                        <p class="ues">&nbsp;Diese Übungen sind im Wochenplan '<span class="akt_wp"></span>' enthalten: <span id="uebg_erstinfo" style="font-weight:normal">In diesem Übungsbereich können Übungen neu angelegt, geändert und in der Vorschau betrachtet werden. 
+                            Fünf leere Übungen sind zu Beginn bereits unterhalb angelegt. <b>Wichtig: </b>Auf keinen Fall eine Übungszuweisungen verändern, wenn die SchülerInnen bereits mit der Arbeit an den Übungen <b>begonnen haben</b>.</span> 
+                            </p>
+                        <div id="cont_uebungen" class="cont_elemente"></div>
+                        <div class="button_under">
+                            <!-- <button id="u_sort" class="bef tarn hid" onclick="set_uebungen_sortEA()">Sortierung einschalten</button> -->
+                            <button id="u_test" class="bef notarn" onclick="uebungen_testen()">Testen</button>
+                            <button class="bef" onclick="uebung_show('neu')">Neue Übung anlegen</button>
+                            <button class="bef notTarn" onclick="set_uebung_edit(-1,0)">Übungen ändern</button>
+                            <button id="u_save" class="bef tarn hid" onclick="uebungen_save()"><img src='../assets/icons/save.png'/>Übungen speichern</button>
+                            
+                        </div>
+                    </div>
+
+                    <div class="cont_butt_re_uebg" style="margin-left:12px;">
+                        <div class="cont_butt_re ifr">
+                        </div>
+                        <div id='cont_zuweis_butt' class="bef hid">
+                            <div>
+                                <button class="ibild" onclick="button_uebg_nach_links(0)"><img src="../assets/icons/pfeil_links_gruen.png" width="36px"/></button>
+                                <!-- <button class="ibild" onclick="button_uebg_nach_links(1)"><-Neue Übung anfügen (2)</button> -->
+                            </div>
+                            <div id="app_hinweis">
+                                Beim ausgewählten unteren Programm die entsprechenden Einstellungen festlegen -<br>dann den linken Zuweisungsbutton klicken und schon ist eine Übung erstellt!
+                            </div>
+                            <div id="cont_stift">
+                                <img title='Zeichnen einschalten' id='stift_zch' onclick='show_zeichnen()' src='../assets/icons/pinsel.png'>
+                            </div>
+                        </div>
+                        <iframe id="app_fenster_1" src="../assets/html/hgbild.html"></iframe>
+                                                    
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sie können die exakte Adresse auch händisch eintragen oder auch einen der unteren Programmwauswahl-Buttons verwenden. 
+
+                            <div><img class="ibild" src="../assets/icons/pfeil_links.png"></div>
+
+                <img src='../assets/icons/save.png'/>
+            Nach erfolgter Auswahl muss das Programm noch mit dem Button 'Zuweisen' der aktuellen Übung zugewiesen werden. -->
+
+
+
+            <div class="cont_haupt">
+                <hr>
+                <div class="cont_mitte">
+                    <div class="cont_txt">
+                        <!-- <button id='cont_zuweis_butt' class="bef hid" onclick="button_uebg_nach_links(1)"><div><span id="app_hinweis"></span></div><div><img class="ibild" src="../assets/icons/pfeil_oben_gr.png"></div></button> -->
+                        <!-- <p class="ues" style="margin-bottom:2px" >Adresse, die bei dieser Übung <span id="akt_ub"></span> verwendet wird: </p> -->
+                        <!-- <iframe id="app_fenster_1" src="../assets/html/hgbild.html"></iframe> -->
+                    </div>
+                    <div id="cont_butt_lapps" onclick="lapps_chg(event)">
+                        <button title="Löschen - nicht brauchbar">LÖ</button>
+                        <button title="Reserve für später">Res</button>
+                        <button title="Zum Nachbauen">NB</button>
+                        <button title="Schulstufe">1</button>
+                        <button title="Schulstufe">2</button>
+                        <button title="Schulstufe">3</button>
+                        <button title="Schulstufe">4</button>
+                        <button title="Mittelschule">M</button>
+                        <button title="Zerlegen in Einzelübungen">Z</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ######## Dialoge ########### -->
+
+
+    <div id="dialog-message" title="Achtung: Zugriffsdaten Admin">
+        <ul class="bullets">
+            <li>
+                Tragen Sie nun das Passwort und die Email-Adresse ändern:
+            </li>
+            <li>
+                Über diese Adresse können Sie sich später das Passwort auch zusenden lassen.
+            </li>
+        </ul>
+        <div class="cont_allg">
+            <div>Das neue Passwort lautet (mind. 6 Zeichen):<br>Kontrolleingabe des Passworts:</div>
+            <div><input id='pw' class="eingabe kurz" type="text" value="hase" maxlength="6"><br>
+                <input id='pw2' class="eingabe kurz" type="text" value="hase" maxlength="6"></div>
+        </div>
+        <hr> Ihre Email-Adresse lautet: <br>
+        <input id="email" autocomplete="false" class="eingabe p100 lft" type="text" value="" maxlength="25">
+    </div>
+
+
+
+    <div id="dialog-zuweisen" class='dialog_breit' title="Übungen überschreiben">
+        <div id="no_fehler">
+            Bei der aktuellen oberen Übungszeile ist bereits eine Adresse zugeweisen.<br>Soll diese überschrieben werden?<br><b>Adresse: </b><span id="adr"></span>
+        </div>
+        <div id="fehler">
+            Es gibt bereits eine Übung, die eine Adresse zugewiesen hat.<br>Soll diese überschrieben werden?<br><span id="adr"></span>
+        </div>
+    </div>
+
+
+
+    <div id="dialog_iframe_uebg" title="Übungshinweis">
+        <div id="info_text">
+            <iframe id="app_fenster_2" src="../assets/html/hgbild.html"></iframe>
+        </div>
+    </div>
+
+    <div id="dialog_benotung" title="Übungshinweis">
+        <div>
+            <iframe id="app_fenster_3" src="../assets/html/hgbild.html"></iframe>
+        </div>
+    </div>
+
+    <div id="dialog_allgemein" title="Arbeitshinweis">
+        <p id="dialog_info">
+        </p>
+    </div>
+
+    <div id="dialog_bewertung_aendern">
+        <div id="info_text"></div>
+    </div>
+
+
+    <div id="dialog_stift_befehle">
+        <!-- <div id="info_text">Sie können die Funktionen der Zeichenebene einschalten und einschschränken.</div> -->
+        
+            <h3>Erlaubte Zeichenwerkzeuge</h3>
+            <fieldset id="stift_funktionen">
+                <legend>Zeichnenfunktionen für SchülerInnen: </legend>
+
+                <div class="radio_bk">
+                    <input type="radio" name="stiftRadio" id="st0">
+                    <label for="st0">Keine Zeichenfunktionen (0)</label>
+                </div>
+
+                <div class="radio_bk">
+                    <input type="radio" name="stiftRadio" id="st1">
+                    <label for="st1">Bildschirmfoto <b>erstellen</b> (1)</label>
+                </div>
+
+
+                <div class="radio_bk">
+                    <input type="radio" name="stiftRadio" id="st2">
+                    <label for="st2">Zeichenfläche <b>einschaltbar</b> (2)</label>
+                </div>
+
+                <div class="radio_bk">
+                    <input type="radio" name="stiftRadio" id="st3">
+                    <label for="st3">Zeichenfläche <b>eingeblendet</b> (3)</label>
+                </div>
+
+                <b>Einschränkungen auf:</b><br>
+                <div class="radio_bk einrueck">
+                    <input type="radio" name="stiftRadio" id="st4">
+                    <label for="st4">Freihandstift und Zeichenlinien (4)</label>
+                </div>
+
+                <div class="radio_bk einrueck">
+                    <input type="radio" name="stiftRadio" id="st5">
+                    <label for="st5">zusätzlich Strichbreite (5)</label>
+                </div>
+
+                <div class="radio_bk einrueck">
+                    <input type="radio" name="stiftRadio" id="st6">
+                    <label for="st6">zusätzlich Rechteck, Kreis, Raster (6)</label>
+                </div>
+
+                <div class="radio_bk einrueck">
+                    <input type="radio" name="stiftRadio" id="st7">
+                    <label for="st7">zusätzlich Smileys, Text (7)</label>
+                </div>
+
+
+
+                <b>Erweiterungen:</b><br>
+                <div class="radio_bk">
+                    <input type="radio" name="stiftRadio" id="st8">
+                    <label for="st8">Zeichenfläche mit Schere (8)</label>
+                </div>
+
+            </fieldset>
+        
+    </div>
+
+
+
+</body>
+
+</html>

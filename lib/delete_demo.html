@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  gesendet.
+</body>
+<script>
+  
+  const params = new URLSearchParams(document.location.search);
+  const q = parseInt(params.get("del_flag")) || 0;
+  console.log(q)
+  loeschen(q);
+
+  function test() {
+    fetch('dc_api.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        data_art: 'demo_loeschen',
+        flag: 0
+      })
+
+    })
+      .then((response) => response.text())
+      .then((response) => {
+
+        console.log(response.charCodeAt(0));
+        console.log(response.charCodeAt(1));
+        console.log(response.charCodeAt(2));
+        console.log(response.charCodeAt(3));
+        console.log(response.charCodeAt(4));
+        console.log(response.charCodeAt(5));
+
+
+        // console.log(response[1]);
+        // console.log(response[2]);
+        console.log(response.length + " " + response);
+
+
+        console.log("---")
+      });
+    console.log("---")
+
+  }
+
+
+  function loeschen(flag) {
+
+    fetch('dc_api.php', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ data_art: 'demo_loeschen', flag: flag })
+    })
+    // .then(data=>data.text())
+     .then(data=>data.json())
+      // .then(function (data) {
+      //   // console.log(data)
+      //   // console.log(data.text())
+      //   return data.text();
+      // })
+      .then(function (resp) {
+        // console.log(resp)
+        console.log(resp)
+        div=document.createElement("div");
+        div.id="ddd";
+        document.body.appendChild(div).innerHTML="Liste:";
+        console.warn(resp.length)
+        resp.forEach(elem => {
+          ddd.innerHTML=ddd.innerHTML+elem+"<br>";
+          console.log(elem)
+        });
+        // console.log(document.body.innerHTML )
+        // document.body.append(resp)
+      })
+
+      .catch(function (error) {
+        console.log("fehler",error)
+      })
+
+
+  }
+</script>
+
+</html>

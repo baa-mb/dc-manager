@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script>
+
+
+$(function (data_art, flag, daten, lehrerflag = 0) {
+
+
+    
+
+
+
+
+
+    const adr = "https://baa.at/projekte/dc/lib/dc_api.php";
+    let params;
+    if (data_art == "lehrer") {
+        if (lehrerflag == 0) {
+            params = { data_art: data_art, flag: flag, akt_lehrer_id: daten };
+        } else { //pw anfragen
+            params = { data_art: data_art, flag: flag, akt_lehrer_pw: daten };
+        }
+    } else if (data_art == "klassen") {
+        params = { data_art: data_art, flag: flag, akt_lehrer_id: akt_lehrer_id, klassen_daten: daten };
+    } else if (data_art == "schueler") {
+        params = { data_art: data_art, flag: flag, akt_klasse_id: akt_klasse_id, schueler_daten: daten };
+    } else if (data_art == "wplan") {
+        params = { data_art: data_art, flag: flag, akt_klasse_id: akt_klasse_id, wplan_daten: daten };
+    } else if (data_art == "uebungen") {
+        params = { data_art: data_art, flag: flag, akt_wplan_id: akt_wplan_id, uebungen_daten: daten };
+    } else if (data_art == "kl_wp_ub") {
+        params = { data_art: data_art, flag: flag, akt_klasse_id: akt_klasse_id, uebungen_daten: daten };
+    } else if (data_art == "protok") {
+        params = { data_art: data_art, flag: flag, akt_schueler_id: akt_schueler_id, protok_daten: daten };
+    } else if (data_art == "sch_protok") {
+        params = { data_art: data_art, flag: flag, akt_schueler_id: akt_schueler_id, protok_daten: daten };
+    } else {
+        alert("unbekannt")
+    }
+
+
+    console.error("data_art: ",data_art)
+    console.log("send:", params);
+    $.ajax({
+        type: "POST",
+
+        url: adr,
+        data: params,
+        dataType: "json",
+        // contentType: "application/json", //wegnehmen, sonst sendet er nicht variable sondern auf file_get_contents('php://input');
+        success: function (data) {
+            // JSON-Code empfangen und parsen
+            if (data) {
+                console.warn("------------------------\ndata_art:", data_art, data.length,"\n========================\n");
+                console.warn(data);
+                if (data.length > 0) {
+                    verteile(data_art, data, flag);
+                }
+            }
+            // $(body).addClass("done");
+        }
+    });
+})
+
+</script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

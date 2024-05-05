@@ -1,0 +1,39 @@
+/* CSS Document */
+@import url("make_html.css");
+body {
+  font-size:1.2em;
+  background-color:white;
+  color:#333;
+}
+a {color:blue}
+h1,h2,h3,h4,h5,h6 {
+    background-color:#D4DC88;
+    padding:4px ;padding-top:8px ;
+    border-radius:4px;
+}
+p {line-height: normal;}
+
+.divTrans {
+    font-size: 22px;
+}
+.ifr100 {
+    border:none;
+    margin:0;padding:0;
+    width:100%;
+    height:98%;
+}
+
+img {width:100%;
+border-radius:4px}
+th {
+  background-color:#eee;
+  border:1px dotted #bbb;
+}
+td {border:1px dotted #bbb}
+
+
+@media print {
+  body {
+    margin:0;padding:0;
+  }
+}

@@ -1,0 +1,351 @@
+/* CSS Document */
+@import url("make_html.css");
+
+body {
+  font-size: 1.4em;
+  margin: 3% 5%;
+  background-color: #fff;
+  color: #fff;
+  background-image: url("/kcfinder/upload/images/tafel_hg.jpg");
+  background-repeat: repeat-y;
+  /* font-family: 'Comic Neue', cursive; */
+  font-family: 'Comic Neue';
+  box-sizing: border-box;
+  /* font-family: 'Roboto', sans-serif; */
+}
+
+a {
+  color: blue
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background-color: #D4DC88;
+  padding: 12px;
+  padding-bottom: 8px;
+  border-radius: 4px;
+}
+
+/* p {line-height: normal;}
+*/
+
+.divTrans {
+  font-size: 22px;
+}
+
+.ifr100 {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 98%;
+}
+
+
+th {
+  background-color: #eee;
+  line-height: 1.5em;
+}
+
+.ifr100 {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 98%;
+}
+
+th {
+  line-height: 1.5em;
+  border-radius: 4px;
+
+  background-color: #666;
+
+  font-size: 1.2em;
+  opacity: 0.7;
+  /* text-align: left; */
+}
+
+td,
+th {
+  /* border: none; */
+  border: 2px solid #aaa;
+  padding: 1%;
+  min-width: 64px;
+}
+
+/* th:first-child {
+  padding: 0;
+  text-align: center;
+  border-left: 2px solid #aaa;
+} */
+
+/* td:first-child {
+  border-left: 2px solid #aaa;
+}
+*/
+/* th:last-child {
+  border-right: 2px solid #aaa;
+} */
+
+.lr {
+  border-right: 2px solid #aaa;
+}
+.gr {
+  background-color:#aaa;
+  opacity: 0.7;
+  color:black;
+}
+
+
+img {
+  width: 100%;
+  border-radius: 1%;
+}
+
+.img_25,
+.img_50 {
+  border: 2px solid red;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 2px;
+  background-color: #aaa;
+
+}
+
+.img_25 {
+  width: 160px;
+}
+
+.img_50 {
+  width: 45%;
+}
+
+
+a {
+  color: yellow;
+  /* text-decoration: none; */
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  background-color: #bbb;
+  opacity: 0.7;
+  border-radius: 8px;
+  padding: 8px;
+  color: #333;
+  margin: 0.8em 0;
+}
+
+
+span.hg,
+span.hgb,
+span.hgr,
+span.hgg {
+  box-shadow: none;
+  border: 1px solid #333;
+  padding: 0.2em 0.3em 0.1em;
+  white-space: nowrap;
+  display: inline;
+  box-shadow: 0 0 25px 10px #333;
+}
+
+
+span.hg {
+  background-color: #ddd;
+  color: black;
+}
+
+span.hgb {
+  background-color: #0184BA;
+
+}
+
+span.hgr {
+  background-color: red;
+}
+
+span.hgg {
+  background-color: gold;
+  color: black;
+}
+
+
+
+span.nummer_gross {
+  display: inline-block;
+  border: 3px solid white;
+
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  white-space: nowrap;
+  /* border: 1px solid #333; */
+  background-color: red;
+
+  box-shadow: 0 0 25px 10px #333;
+  /* padding: 0.1em 0.4em 0.1em; */
+  font-size: 1.2em;
+  line-height: 1.2em;
+  /* margin-top:4px; */
+  text-align: center;
+
+}
+
+
+
+
+
+/* p {line-height: normal;}
+*/
+.divTrans {
+  font-size: 22px;
+}
+
+table.budget {
+  border: 2px solid #aaa;
+  /* border: 2px solid rgb(76, 94, 75); */
+}
+
+table.budget td {
+  border: 1px dotted #aaa;
+
+}
+
+.nobord {
+  border: none
+}
+
+.nobord td {
+  border: none;
+  border-bottom: 2px solid
+}
+
+/* .nobord td:first-child {padding:0} */
+
+img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+ul li,
+ol li {
+  font-size: 0.95em;
+
+}
+
+
+
+.shadow_gold {
+  box-shadow: 0 0 25px 10px gold;
+}
+
+.shadow_grey {
+  box-shadow: 0 0 25px 10px #333;
+}
+
+table.edupuzzle,
+table.edupuzzle td {
+  white-space: nowrap;
+  border: 1px solid green;
+  width: auto;
+
+}
+
+.img_25,
+.img_50 {
+  border: 2px solid red;
+  border-radius: 8px;
+  margin: 4px;
+  padding: 2px;
+  background-color: #aaa;
+
+}
+
+.img_25 {
+  width: 160px;
+}
+
+.img_50 {
+  width: 45%;
+}
+
+ul,
+ol {
+  line-height: 130%;
+}
+
+
+/* ol {list-style-type:upper-alpha;}
+ol ol {list-style-type:lower-alpha}
+ol ol {list-style-type:lower-alpha}
+ol ol ol {list-style-type:decimal} */
+
+li {
+  line-height: unset;
+  margin-bottom: auto;
+}
+
+ol li:last-child,
+ul li:last-child {
+  margin-bottom: 1em;
+}
+
+
+
+li {
+  margin: unset;
+  padding: unset;
+}
+
+table.dc_video {
+  border:2px solid #aaa;
+}
+
+td {
+  border: 2px solid #aaa;
+}
+
+td.video {
+  padding:0;
+}
+
+table.dc_video iframe {
+  padding:0;
+  margin:0;
+  border:none;
+}
+
+table.dc_video ul {
+  margin-left: -5%;
+}
+
+table.dc_video td.video_hinweis {
+
+  vertical-align: middle;
+}
+
+/* iframe {
+  margin:0;padding:0;
+} */
+
+
+
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background-image:none;
+    color:black;
+  }
+}

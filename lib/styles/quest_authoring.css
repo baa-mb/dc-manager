@@ -1,0 +1,222 @@
+/* CSS Document */
+
+body {
+	/*
+	font-family:"Courier New", Courier, monospace;
+	*/
+
+	
+	font-size:1em;
+	font-size: 1.9vw;
+	width:100%;
+	/* max-width:1024px;
+	max-width:1006px; */
+	
+	/*
+	border:1px solid #eee;
+	margin-top:14px;
+	*/
+	margin:0px;
+
+}
+
+#editor-place {
+min-height:8px;	
+border:1px dotted #eee;
+}
+
+td,th {border:1px dotted red}
+th {background-color:#eee}
+
+.bspRahmen { 
+	box-sizing:border-box;
+	width:100%;
+	border:1px solid #eee;
+	float:left;
+}
+
+.elem { 
+	border:1px dotted #ddd;
+}
+
+.elem-toggle {
+	position:absolute;
+	top:8px;
+	right:8px;
+}
+
+.elem-content {
+   visibility:visible;
+}
+
+.elem-mover-butt {
+    height:15px;width:15px
+}
+/*
+.elem-corner {
+    position: absolute;
+    right:0;top:-2px;
+    height:15px; width:15px;
+	 opacity:0.7;
+}
+*/
+.elem-header-rechts,.elem-header-links,.elem-footer { 
+	position:absolute;
+	padding:0.2em 0.3em;
+	margin-bottom:0.5em;
+
+	background-color:transparent;
+	box-sizing:border-box;
+	opacity: 0.9;
+
+	padding:1px;
+	z-index:999;
+	
+	top:-10px;
+	border-color:#aaa;
+}
+.elem-header-links {
+	left:4px;
+}
+
+.elem-header-rechts {
+	right:4px;
+}
+
+.ifr_sizer {
+	display:inline;
+	margin-left:0px;
+}
+
+
+.elem-footer {
+	right:4px;;
+	color:#aaa;
+	background-color:#eee;
+	font-size:0.6em;
+	padding:2px 4px;
+	border-radius:4px;
+	opacity:1;
+	cursor:default;
+}
+
+.b_tool {
+	font-size:0.7em !important;
+	float:left;
+	width:15px;height:15px;
+}
+
+.elem-placeholder {
+	border:1px dotted black;
+	background-color:#ddd;
+	float:left;
+}
+
+/* spezial */
+.eAntw input[type='checkbox'] {
+	margin-right:8px;
+	margin-left:8px;
+}
+.eAntw div[for^='ch2eck'] {
+	/* width:90% */
+	font-size:0.9em;
+}
+
+#id_sduo1 {
+	width:40%
+}
+#id_sduo2 {
+	width:calc(60% - 18px);
+}
+
+/* spez end */
+
+	
+/*
+.adr_zeile_ed {float:left;width:100%}
+*/
+.chkboxText {font-size:inherit}
+
+.elem-adr,.elem-artikel {
+	padding:2px 4px;
+}
+.klammer {
+	width:100%;
+	margin-left:4px;
+}
+
+
+.eAntw.zuDrop {border-radius:8px}
+
+
+
+/*
+.zuDropDyn {
+	cursor:move!important
+}
+.input[type=checkbox] {
+	width:20px;height:20px;
+	margin-top:-8px;	
+	
+-ms-transform: scale(2); 
+-moz-transform: scale(2);
+-webkit-transform: scale(2); 
+-o-transform: scale(2); 
+padding: 10px;
+
+}
+*/
+
+
+
+.buttErsatz {
+	text-align:center;
+	padding:0.2em;
+}
+
+.b_chkbox{margin:0 4px}
+
+
+.mhelp {
+	background-color:#DDEEDD;
+	display:block;
+	text-align:left;
+	border:1px solid #000;
+	margin:4px;
+	padding:4px;
+}
+
+.mhelp:before{content:"Lösungstipp: ";color:#ff0000;}
+
+.bord {border:1px solid red}
+
+/*
+iframe::after
+{ 
+content:"- Remember this";
+background-color:yellow;
+color:red;
+font-weight:bold;
+}
+*/
+
+.elem-adressblock {
+	display:table;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

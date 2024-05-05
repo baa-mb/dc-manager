@@ -1,0 +1,307 @@
+/* CSS Document */
+html,
+body {
+  font-size: 1em
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+
+  font-family: 'Roboto', sans-serif;
+
+}
+
+h3 {
+  font-size: 0.8em
+}
+
+.container_menue {
+  border: 5px solid orange !important;
+  width: 30%;
+}
+
+.ui-page-theme-a,
+.ui-mobile-viewport {
+  background-color: #333 !important;
+}
+
+#ea {
+  width: 88%;
+  border-radius: 4px;
+}
+
+#content {
+  padding: 0px;
+  margin: 8px;
+}
+
+#men_ul {
+  margin: 0px;
+  /* margin-left:-8px */
+}
+
+h3 a {
+  font-size: 1em !important
+}
+
+li a {
+  font-size: 0.8rem !important
+}
+
+.iconklein {
+  padding-left: 12px
+}
+
+.head-icons {
+  text-align: center;
+  background-color: #1d1d1d;
+}
+
+
+.ui-collapsible-set {
+  margin: 0
+}
+
+.coll_set {
+  margin: 0.3em 0
+}
+
+.ui-collapsible-content {
+
+  font-size: 0.7em !important;
+
+  padding: .2em .3em .05em;
+}
+
+.ui-icon-plus:after,
+.ui-icon-minus:after,
+.ui-icon-carat-r:after {
+  background-size: .6em .6em;
+  width: 1.1em;
+  height: 1.1em;
+  margin-top: -0.6em;
+  border-radius: 0.3em;
+}
+
+.ui-mini.ui-btn-icon-left:after {
+  left: 0.3em
+}
+
+/*plus icon */
+.ui-collapsible-heading .ui-btn-icon-left {
+  padding-left: 1.75em
+}
+
+/* text */
+
+/*
+.ui-icon-grid::after {margin-left:-9px}
+*/
+.xhide {
+  display: none;
+}
+
+
+.ui-listview>li.ui-li-has-alt>.ui-btn {
+  margin-right: 1.7em
+}
+
+.ui-header .ui-btn {
+  font-size: 11px
+}
+
+
+h3 a.ui-icon-minus {
+  background-color: #FF9900 !important
+}
+
+h3 a.ui-icon-plus {
+  background-color: #FACA00 !important
+}
+
+h4 a {
+  background-color: #BCCFE5 !important
+}
+
+h5 a {
+  background-color: #91CC1B !important
+}
+
+h5 a {
+  background-color: #E6EEAE !important
+}
+
+
+
+.accord_leer a.ui-icon-plus:after {
+  background-image: none;
+  content: none;
+}
+
+.accord_leer a.ui-icon-minus:after {
+  background-image: none;
+  content: none;
+}
+
+
+.butti,
+.ui-btn {
+  white-space: normal !important
+}
+
+.butti {
+  padding-left: 20px
+}
+
+.butti {
+  padding-right: 0px
+}
+
+.ui-listview>li.ui-li-has-alt>.ui-btn {
+  background-color: #EBEEF4;
+  background-color: #DDD;
+}
+
+.ui-btn {
+  text-shadow: none !important
+}
+
+
+.ui-page-theme-a .ui-btn {
+  border-color: #eee
+}
+
+.ui-page-theme-a {
+  background-color: #f0f0f0
+}
+
+.divTrans {
+  padding: 8px;
+  top: 10px;
+  width: 32%;
+  right: 10px;
+  color: black;
+  font-size: 22px;
+  position: absolute;
+  opacity: 0.9;
+  background-color: rgb(238, 238, 238);
+}
+
+img {
+  width: 100%;
+  border-radius: 4px
+}
+
+.navi {
+  width: 28px;
+  margin-bottom: 6px;
+
+  height: 96px;
+  background-color: #444;
+  border-radius: 8px;
+  /*
+  border: 1px solid #333;
+  */
+  border: none;
+  cursor: hand;
+  padding: 0px;
+  padding-left: 2px;
+}
+
+#akt_nr {
+  color: #eee;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.hid {
+  display: none
+}
+
+
+.bmen {
+  /*bild mneue */
+  width: 40px;
+  /* width:20%; */
+  margin-right: 3px;
+  float: left;
+}
+
+.ui-listview .ui-li-has-thumb>.ui-btn>img:first-child {
+  padding-left: 20px;
+  padding-top: 6px;
+  /* width:50px; */
+  /* max-width:5px; */
+  max-height: none;
+  /* max-height:50px;  */
+}
+
+
+.ui-listview>.ui-li-has-thumb>.ui-btn {
+  /* min-height:auto; */
+  min-height: 40px;
+  padding-left: 5em;
+}
+
+
+.ui-btn-icon-notext:after,
+.ui-btn-icon-right:after {
+  content: none;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border: 1px solid orange;
+}
+
+#mensmall {
+  /* visibility: hidden; */
+  display: none
+}
+
+
+.ui-input-has-clear {
+  padding: 0px;
+}
+
+/* .ui-input-search {
+  padding-top:12px; 
+  margin-bottom:0px; 
+} */
+
+
+
+.ui-input-search {
+  text-align: center !important;
+  margin-left: 4%;
+  width: 90%
+}
+
+
+#such_filter {
+  padding: 0px;
+  text-align: center;
+  text-transform: uppercase;
+  /* margin-bottom:-10px; */
+  border: 1px solid #666;
+  border-radius: 4px;
+  font-size: 0.9em;
+  width: 100%;
+  /* margin:-4px;
+  width: 75%; */
+}
+
+.ui-input-search:after {
+  /* right: -50 !important; */
+  opacity: 0.9;
+  left: 87%;
+  padding: 6px;
+  margin-top: -14px;
+  background-color: #fff;
+  border-radius: 4px;
+}

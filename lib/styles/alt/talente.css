@@ -1,0 +1,24 @@
+/* CSS Document */
+@import url("make_html.css");
+body {
+margin:0px;
+background-image:url(/kcfinder/upload/images/bild_20190506_003223_klein___Kopie.png);
+padding-left:20%
+}
+
+
+
+ul {
+list-style: url("../assets/images/mb_icon.png");
+
+}
+
+li {padding-left:32px}
+
+h1 {
+background-color:white;
+text-align:left;
+font-size:1.2em;
+width:50%;
+opacity:80%
+}

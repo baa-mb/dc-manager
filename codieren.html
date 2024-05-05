@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        var s=1;
+        var nr=33;
+        const queryString = window.location.search;
+        if (queryString) {
+            const urlParams = new URLSearchParams(queryString);
+            param_schueler_id = Number(atob(decodeURIComponent(urlParams.get('s'))));
+            // param_schueler_nr = Number(atob(decodeURIComponent(urlParams.get('nr'))));
+            param_schueler_nr = Number(urlParams.get('nr'));
+s=param_schueler_id;
+            console.log(s, param_schueler_nr)
+            if (s!=param_schueler_nr) {
+                alert("alarm");
+            }
+        }
+
+
+        function codiere() {
+vors=s+5;
+            s = encodeURIComponent(btoa(s+5));
+            // nr = encodeURIComponent(btoa(nr));
+            // x=encodeURIComponent(btoa(x));
+
+            location.href = "t1.html?s=" + s + "&nr=" + vors;
+        }
+
+        setTimeout(()=> {
+            codiere();
+        },500)
+
+    </script>
+
+    
+
+
+</head>
+
+<body>
+    <button onclick="codiere()">Kodiere</button>
+</body>
+
+</html>

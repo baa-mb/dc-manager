@@ -1,0 +1,49 @@
+:root {
+    --acc_breite:70px;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+    /* font-size: 0.8em; */
+    background:#333;
+    /* overflow:hidden */
+    
+}
+
+#tabImg {
+    width:var(--acc_breite);
+}
+
+.uesImg {
+    height:40vh
+}
+
+#tabImgI {
+    /* height:32px; */
+    /* width:80px; */
+    height:1.8em;
+}
+
+.ui-widget-content {
+    
+}
+
+.cont_haupt {
+    /* padding:4%; */
+    /* max-width:900px; */
+}
+ #tabs-I {
+    border:1px solid red;
+    display:flex;
+    
+ }
+
+ #dialog-allgemein {
+    display:none;
+ }

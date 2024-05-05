@@ -1,0 +1,89 @@
+body {
+    /* background: lightgray !important;
+    background: rgb(148, 0, 0) !important; */
+
+
+    background: #aaa !important;
+    /* bei b ist der scahtten sichtbar */
+    background: #ddd !important;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 1.5em !important;
+    /* width:100%  !important; */
+}
+
+#custom-task-panel,
+#custom-feedback-panel {
+    background-color: blue !important;
+}
+
+/*Anweisung */
+#AppClientTaskPanel {
+    /* background-color:blue !important;   */
+    /* background: #fece2f url("images/ui-bg_gloss-wave_60_fece2f_500x100.png") 50% 50% repeat-x !important;    */
+    background: #fece2f !important;
+    color: #333;
+    font-size: 1em !important;
+    border-radius: 16px !important;
+    /* display:none; */
+}
+
+#AppClientTaskPanel>div {
+    font-size: 16px !important;
+}
+
+#AppTitle {
+    text-align: center;
+}
+
+#eingabe {
+    text-align: center !important
+}
+
+/* #checksolutionBtnPanel {
+    scale:5
+} */
+
+
+/* hand */
+#usabilityHint {
+    display: none !important;
+}
+
+/* #feedback {
+    display:none !important;
+} */
+
+
+
+#AppClientFeedbackPanel {
+    display: none;
+}
+
+#AppClientFullscreenButton {
+    display: none;
+}
+
+
+/*
+button für Aufgabe anzeigen - ganz oben links 
+auch auf klick die Anweisung noch einmal zeigen, falls es eine gibt
+*/
+#AppClientTaskButton {
+    /* background:red !important; */
+    display: none !important;
+}
+
+.card.bold {
+    text-align: center
+}
+
+
+/* #checksolutionBtnPanel {
+    display: block !important;
+    display: none;
+} */
+
+#checkSolutionBtn {
+    /* display: block !important; */
+    display: none;
+}
