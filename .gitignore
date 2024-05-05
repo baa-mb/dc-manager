@@ -1,5 +1,8 @@
 # ignore all logs
+php_*conn*
+php_baa*
 .allgemein/
+*.accdb
 *.log
 ckeditor4/
 !ckeditor4/plugins/
@@ -17,9 +20,11 @@ zzz_*
 * copy.*
 *.min.*
 *.zip
+pdfs/
 *.pdf
 uploads/
 *.png
+*.jpg
 user_img/
 
 # ~/.config/git/ignore
