@@ -17,6 +17,10 @@ zzz_*
 * copy.*
 *.min.*
 *.zip
+*.pdf
+uploads/
+*.png
+user_img/
 
 # ~/.config/git/ignore
 .vscode/*
