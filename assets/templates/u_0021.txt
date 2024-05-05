@@ -1,0 +1,21 @@
+<h3 style="text-align: center;">Zwei Zahlen sind gegeben, ermittle den Mittelwert!</h3>
+
+<p>&nbsp;</p>
+
+<table class="zahlenstrahl">
+	<tbody>
+		<tr>
+			<td>=[rnd(20;30)*2]</td>
+			<td><img src="https://baa.at/projekte/dc/assets/images/pfeil_nu.png" style="max-width:48px" /></td>
+			<td>=[[f1]+rnd(40;60)*2]</td>
+		</tr>
+		<tr>
+			<td colspan="3"><img alt="" src="https://baa.at/projekte/dc/assets/images/zahlenstrahl.png" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+			<td><span class="eAntw zuDrop" data-baa-lsg="0">=[([f1]+[f2])/2];=[([f1]+[f2])/2+10];=[([f1]+[f2])/2-5]</span></td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>

@@ -1,0 +1,10 @@
+<h2 style="text-align: center;">Beispiel einer Informationsseite</h2>
+
+<p><strong>Einige Tipps zur Bedienung im Autorenmodus (Bleistiftsymbol</strong>):&nbsp;</p>
+
+<ul>
+	<li>Es handelt sich oberhalb um ein Tabellensystem - mit der rechten Maustaste kann man die Zeilen und Spalten kontrolliert verändern&nbsp;</li>
+	<li>Man kann die Trennlinie zwischen Text und Bild verschieben</li>
+	<li>oder man wählt aus dem "Vorlagen"-Menü eine neue Seitenform aus</li>
+</ul>
+

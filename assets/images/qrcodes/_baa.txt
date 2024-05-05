@@ -1,0 +1,8 @@
+DIGI.CASE
+Piberaufgaben NEU für DIGI-CASE 
+schalter ?alle=1 zeigt alle
+QR-code erstellen: 
+Ausdruck: Buch: make_html4_digi.case_buch.php
+
+1680-Schirm
+<img src="style/_baa_druck_parameter.png">

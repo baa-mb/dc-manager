@@ -1,0 +1,23 @@
+<h2 style="text-align: center;">Reihenfolge</h2>
+
+<table>
+	<tbody>
+		<tr>
+			<td style="width: 51%;">
+			<p>Informationstext ...</p>
+
+			<ul>
+				<li>Informationspunkte</li>
+				<li>Informationspunkte</li>
+				<li>Informationspunkte</li>
+			</ul>
+
+			<p>&nbsp;</p>
+			</td>
+			<td><img class="card" src="//baa.at/projekte/dc/assets/user_img/a_foto_2023-06-12_14.png" /></td>
+		</tr>
+		<tr>
+			<td colspan="2" style="width: 51%;">Weiterer Text - Fragetext - ...</td>
+		</tr>
+	</tbody>
+</table>

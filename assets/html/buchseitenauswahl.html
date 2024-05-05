@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="https://baa.at/projekte/dc/lib/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weitere Dokumente</title>
+    <link rel="stylesheet" href="../assets/html/sammlung.css">
+    <script type="text/javascript" src="../assets/html/sammlung.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            baa_root.init('BU',6,":");
+        });
+        
+        window.parent.ablatt_id = "ap1.png";
+        window.parent.ablatt_kzz == "AP1";
+        var a_ablatt = [];
+
+        for (let i=2;i<150;i++) {
+            a_ablatt.push([`Buchseite ${i}:`, i]);
+        }
+
+        function show_ablatt(kzz, id) {
+            let dname = `bs_${id}.png`;
+            // document.location.href="../assets/pdfs/" + dname;
+            document.location.href = "show_page.php?datei_url=" + "../assets/pdfs/" + dname;
+        }
+
+
+    
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

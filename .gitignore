@@ -5,7 +5,7 @@ ckeditor4/
 !ckeditor4/plugins/
 !ckeditor4/*.js
 
-assets/
+# assets/
 games/
 ckeditor/
 ckfinder/

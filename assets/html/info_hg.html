@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">    
+<head>
+    <style>
+        body{
+            background-image:url('../icons/hgbild6.png');
+            font-size:2em;
+            color:#ccc;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align:center;
+            line-height:2em;
+            height:95vh;
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+    </style>
+    <script>
+        const params = new URLSearchParams(document.location.search);
+        if (params) {
+            document.write ("<xh2>"+params.get("txt")+"</h2>")
+        }
+    </script>
+</head>
+<body></body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        body {
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            height: 95vh;
+            text-align: center;
+            margin: 0;
+            /* padding-left: 16px;
+            padding-right:16px; */
+            color: white;
+            font-size: 2em;
+            font-family: Arial, Helvetica, sans-serif;
+            /* border:1px solid #ccc; */
+        }
+        
+        .weiss {
+            background: #eee;
+            border: 5px solid red;
+            padding: 6%;
+            opacity: 0.9;
+            border-radius: 50%;
+        }
+        
+        .ues_titel {
+            color: white;
+            /* color: #333; */
+            padding: 4% 12%;
+            font-weight: bold;
+            width:60vw;
+            /* opacity: 0.6;
+            background-color: #ddd;
+            border-radius: 8px; 
+            border: 2px solid red;
+            */
+        }
+        
+        img {
+            transform: scale(1.5);
+        }
+        
+        #qr_code {
+            position: absolute;
+            top: 7%;
+            right: 4%;
+            width: 8%;
+            background-color: white;
+            /* padding: 1%; */
+        }
+        
+        @media print {
+            body {
+                color: black !important;
+                background-color: white !important;
+                background-image: none !important;
+                background-image: url('../icons/hgbild_white.png') !important;
+            }
+            #qr_code {
+                position: absolute;
+                top: 1%;
+                right: 1%;
+                width: 12%;
+                background-color: white;
+                margin: 1%;
+                border-radius: 1px;
+            }
+            #ues {
+                color: inherit;
+                margin-top: 10%;
+                background-color: white;
+            }
+            .ues_titel {
+                /* color: inherit !important; */
+                color: #333;
+                padding: 4%;
+                background-color: #ddd;
+                border-radius: 8px;
+                font-weight: bold;
+            }
+            #span {
+                color: inherit !important;
+            }
+            .weiss {
+                border: none;
+                background: none;
+            }
+        }
+        /* p,div ,img{
+            border:1px solid lime;
+        } */
+    </style>
+    <script>
+        function getRandomInt(max) { /* inkl */
+            return Math.floor(Math.random() * max);
+        }
+        let anim_nr = 0;
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        // param_schueler_id=Number(urlParams.get('s'));
+        const param_ues = urlParams.get('ues');
+        const param_datum = urlParams.get('datum');
+        const param_wpid = urlParams.get('wpid');
+        let m_addClass = "";
+        let bname = "";
+        if ((param_wpid / 2) == Math.floor(param_wpid / 2)) {
+            anim_nr = param_wpid % 120;
+            bname = `anim${anim_nr}`;
+        } else {
+            m_addClass = "weiss";
+            anim_nr = param_wpid % 180;
+            bname = `bnim${anim_nr}`;
+        }
+    </script>
+</head>
+
+<body style="background-image:url('../icons/hgbild6.png')">
+    <div id="ues"></div>
+
+
+    <!-- <img id="qr_code" src="../icons/qr_dlpl_at.png" /> -->
+    <img id="qr_code" src="" />
+
+
+    <div id="cont_img">
+        <img id="animat" src="" />
+    </div>
+
+    <div style="font-size:0.5em;margin:16px;line-height:1.5">Wähle nun eine Übung aus dem Wochenplan (<span id='wpnr'></span>) aus.<br><br>Alle Wochenpläne, die mit einem <b>X</b> beginnen, werden von der Plattform <b>digi.case</b> zur Verfügung gestellt.<br>Beachte aber besonders die Klassen-Wochenpläne, die von deiner Lehrkraft kommen. Die neuen
+        Wochenpläne sind immer ganz oben in der Liste.</div>
+</body>
+
+<script>
+
+    // let wp_adr="https://dc.baa.at?wp="+param_wpid;
+    // let src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl=" + encodeURIComponent(wp_adr) + "&choe=UTF-8 &chld=H|1";
+
+    // document.getElementById("ues").innerHTML = `<p class='ues_titel'>Wochenplan<br><br>${param_ues} (${param_datum})</p>`;
+    document.getElementById("ues").innerHTML = `<p class='ues_titel'>Wochenplan<br><br>${param_ues}</p>`;
+    document.getElementById("qr_code").src = `../../lib/get_qrc.php?flag=wp&nr=${param_wpid}`;
+    document.getElementById("animat").setAttribute("src", `../icons/anim/${bname}.gif?123`);
+    document.getElementById("wpnr").innerText=param_wpid;
+    if (m_addClass > "") {
+        document.getElementById("cont_img").classList.add(m_addClass);
+    }
+</script>
+
+</html>

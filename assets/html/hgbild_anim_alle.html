@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            width:100%;
+            height:100vh;
+        }
+        div {
+            /* position: absolute;
+            top: 45vh;
+            left: 45vw; */
+            /* width: 200px; */
+            /* background-image: radial-gradient(white 24%, #333333 70%); */
+            /* background-image: radial-gradient(white 24%, #333333 70%);  */
+            background:white;
+            background:#eee;
+            border:5px solid red;
+            padding:7%;
+            opacity:0.9;
+            border-radius:50%;
+            transform: scale(1.5);
+            /* background-image: radial-gradient(ellipse farthest-corner at 45px 45px, rgba(50, 50, 50, 0.8) 50%, rgba(80, 80, 80, 0.2) ); */
+
+        }
+
+        img {
+            float:left;
+        }
+        p {
+            font-size:2em;
+        }
+    </style>
+    <script>
+        function getRandomInt(max) { /* inkl */
+            return Math.floor(Math.random() * max);
+        }
+    </script>
+</head>
+
+<body style="background-image:url('../icons/hgbild6.png')">
+    <!-- <div>
+        <image id="animat" src="" />
+    </div> -->
+</body>
+
+<script>
+    b=112,a=189;
+    abst=""
+    for (var i=1;i<=b;i++) {
+        let node = document.createElement("img");
+        node.src=`../icons/anim/anim${i}.gif`;
+        // elem=`<img src='../icons/amin/anim${i}.png' >`;
+        document.body.appendChild(node);
+        node = document.createElement("p")
+        node.innerText=i
+        node.style.color="white";
+        document.body.appendChild(node);
+        
+    }
+    for (var i=1;i<=a;i++) {
+        let node = document.createElement("img");
+        node.src=`../icons/anim/bnim${i}.gif`;
+        // elem=`<img src='../icons/amin/anim${i}.png' >`;
+        document.body.appendChild(node);
+        node = document.createElement("p")
+        node.innerText=i
+        node.style.color="white";
+        document.body.appendChild(node);
+        
+    }
+    // document.getElementById("animat").setAttribute("src",`../icons/anim/anim${getRandomInt(209)}.gif`);
+</script>
+</html>

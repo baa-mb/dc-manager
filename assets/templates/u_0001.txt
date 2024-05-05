@@ -1,0 +1,3 @@
+<h2 style='text-align:center'>Eine &Uuml;berschrift</h2>
+<p>Ein Informationstext mit mehreren Abs&auml;tzen auf einer Darstellungsseite.</p>
+

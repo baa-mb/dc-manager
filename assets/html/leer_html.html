@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- wird nur für editor benötigt -->
+    <base href="https://baa.at/projekte/dc/lib/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="js/ckeditor4/ckeditor.js"></script>
+    <script src="js/quest/authoring.js"></script>
+
+    <!-- Warum ist quest_autoring notwenig?s  -->
+    <!-- <link rel="stylesheet" href="styles/quest_runtime.css" /> -->
+
+    <!-- <link rel="stylesheet" href="styles/quest_authoring.css" /> 
+    <link rel="stylesheet" href="styles/quest_runtime.css" />  -->
+    <!-- <script src="ckeditor4/adapters/jquery.js"></script> -->
+
+    <!-- <link rel="stylesheet" href="js/sketch/sk.min.css" />
+    <script src="js/sketch/simple_sketch.min.js"></script>
+    <script src="js/sketch/sk.js?123"></script> -->
+
+
+    <style>
+        body {
+            /* margin: 1%;
+            margin-top: 8%; */
+            /* background: white; */
+            background: transparent;
+            width: 100%;
+            margin: 0;
+            padding: 1% 5%;
+            box-sizing: border-box;
+            overflow: hidden;
+            text-align: center;
+            font-size: 1.5rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            display: flex;
+            flex-direction: row;
+        }
+        
+        hr {
+            margin-top: 7em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form id="edit_form">
+        <input type="hidden" name="uebg_id" id='uebg_id' value="4444">
+        <textarea id="edit_area" name="edit_area">
+        </textarea>
+        <input type="submit" value="... loading ...">
+    </form>
+
+</body>
+
+</html>
+
+
+

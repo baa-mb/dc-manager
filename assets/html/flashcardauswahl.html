@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="https://baa.at/projekte/dc/lib/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biberbeispiele</title>
+    <link rel="stylesheet" href="../assets/html/sammlung.css">
+    <script type="text/javascript" src="../assets/html/sammlung.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            baa_root.init('FL',5,":",0,1);
+        });
+        
+        window.parent.ablatt_id = "8544";
+        window.parent.ablatt_kzz = "RL1";
+        var a_ablatt = [
+        ['.Erklärung'],
+            ['FC01: Was ist eine Flashcard', 23824, 23824],
+            ['FC02: Kofferfertigstellung', 24754, 24754],
+            ['FC03: Kofferordnung', 24752, 24752],
+            ['.Spiele'],
+            ['FC1: Spiele basteln', 24886, 24886],
+            ['FC2: Tangram (1)', 24706, 24706],
+            ['FC3: Tangram (2)', 24310, 24310],
+            ['FC4: Tangram (3)', 24311, 24311],
+            ['FC5: Tetris (1)', 24483, 24483],
+            ['FC6: Tetris (2)', 24508, 24508],
+            ['FC7: Tetris (3)', 24507, 24507],
+            ['FC8: Türme von Hanoi (1)', 24505, 24505],
+            ['FC9: Türme von Hanoi (2)', 24504, 24504],
+            ['FC10: Türme von Hanoi (3)', 24503, 24503],
+            ['FC11: Geobrett (1)', 24501, 24501],
+            ['FC12: Geobrett (2)', 24500, 24500],
+            ['FC13: Geobrett (3)', 24499, 24499],
+            ['FC14: Cäsar-Scheibe (1)', 24497, 24497],
+            ['FC15: Cäsar-Scheibe (2)', 24496, 24496],
+            ['FC16: Cäsar-Scheibe (3)', 24495, 24495],
+            ['FC17: Getriebe (1)', 24493, 24493],
+            ['FC18: Getriebe (2)', 24492, 24492],
+            ['FC19: Getriebe (3)', 24491, 24491],
+            ['FC20: Daten und Muster (1)', 24489, 24489],
+            ['FC21: Daten und Muster (2)', 24509, 24509],
+            ['FC22: Zauberquadrat (1)', 24510, 24510],
+            ['FC23: Zauberquadrat (2)', 24487, 24487],
+            ['FC24: Zauberquadrat (3)', 24511, 24511],
+            ['FC25: Würfelbrett (1)', 24512, 24512],
+            ['FC26: Würfelbrett (2)', 24485, 24485],
+            ['FC27: Würfelbrett (3)', 24513, 24513],
+            ['FC28: Würfelbrett (3)', 24484, 24484],
+            ['FC29: Mühle (1)', 24717, 24717],
+            ['FC30: Mühle (2)', 24718, 24718],
+            ['FC31: Mühle (2)', 24719, 24719],
+            ['FC32: Mühle (3)', 24720, 24720],
+            ['FC33: Mühle (3)', 24721, 24721],
+            ['FC34: TicTacToe (1)', 24722, 24722],
+            ['.Basteln'],
+            ['FC35: Basteln (1)', 24723, 24723],
+            ['FC36: Basteln (1)', 24724, 24724],
+            ['FC37: Basteln (2)', 24725, 24725],
+            ['FC38: Basteln (2)', 24726, 24726],
+            ['FC39: Basteln (3)', 24727, 24727],
+            ['FC40: Basteln (2)', 24728, 24728],
+            ['FC41: Basteln Spiele (1)', 24729, 24729],
+            ['FC42: Basteln Spiele (1)', 24730, 24730],
+            ['FC43: Basteln Spiele (1)', 24731, 24731],
+            ['FC44: Binär (1)', 24732, 24732],
+            ['FC45: Binär (2)', 24733, 24733],
+            ['FC46: Binär (2)', 24734, 24734],
+            ['.Coding'],
+            ['FC47: Spielen (1)', 24735, 24735],
+            ['FC48: Spielen (2)', 24736, 24736],
+            ['FC49: Spielen (2)', 24737, 24737],
+            ['FC50: Spielen (2)', 24738, 24738],
+            ['FC51: Spielen (1)', 24739, 24739],
+            ['FC52: Spielen (1)', 24740, 24740],
+            ['FC53: Spielen (1)', 24741, 24741],
+            ['FC54: Spielen (2)', 24742, 24742],
+            ['FC55: Spielen (2)', 24743, 24743],
+            ['FC56: Spielen (2)', 24744, 24744],
+            ['FC57: Spielen (2)', 24745, 24745],
+            ['FC58: Spielen (2)', 24746, 24746],
+            ['FC59: Coding (1)', 24867, 24867],
+            ['FC60: Coding (2)', 24868, 24868],
+            ['FC61: Coding (2)', 24869, 24869],
+            ['FC62: Codieren (2)', 24747, 24747],
+            ['FC63: Codieren (3)', 24748, 24748],
+            ['FC64: Codieren (3)', 24749, 24749],
+            ['FC65: Codieren (3)', 24750, 24750]
+        ];
+
+
+        function show_ablatt(kzz, id,edit_id=0) {
+            let adr = "https://baa.at/dom/dlpl/dc/lib/make_html.php?m_id=" + ablatt_id;
+            if (edit_id) {
+                adr = "../assets/html/leer_html.php?men_id=" + edit_id + "&quelle=fc";
+            }
+            document.location.href = adr;
+        }
+        
+
+
+    </script>
+    <style>
+        button {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+</script>
+
+</html>

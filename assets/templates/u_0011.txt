@@ -1,0 +1,38 @@
+<h2 style="text-align: center;">Text und Fragen</h2>
+
+<table>
+	<tbody>
+		<tr>
+			<td style="width: 50%;">
+			<p>Informationstext ...</p>
+
+			<ul>
+				<li>Informationspunkte</li>
+				<li>Informationspunkte</li>
+				<li>Informationspunkte</li>
+			</ul>
+
+			<p>&nbsp;</p>
+			</td>
+			<td><img src="//baa.at/projekte/dc/assets/user_img/a_foto_2023-06-12_14.png" /></td>
+		</tr>
+		<tr>
+			<td colspan="2">Welche Winkelsumme besitzt das Dreieck? <span class="eAntw zuDrop" data-baa-lsg="0">180;360;90</span> Grad</td>
+		</tr>
+		<tr>
+			<td colspan="2">Wie viele Dreiecke ergeben sich immer, wenn ich einem Viereck eine Diagonale einzeichne? <span class="eAntw zuDrop" data-baa-lsg="0">2;3;4</span></td>
+		</tr>
+		<tr>
+			<td colspan="2">Wie viele Dreiecke ergeben sich immer, wenn ich einem Viereck zwei Diagonale neinzeichne? <span class="eAntw zuDrop" data-baa-lsg="0">4;3;2</span></td>
+		</tr>
+		<tr>
+			<td colspan="2">Wie kann man Frageseiten bauen?</td>
+		</tr>
+		<tr>
+			<td colspan="2">Schreiben Sie einen Text und die möglichen Antworten durch Strichpunkt betrennt, wobei die richtige Antwort an erster Stelle stehen muss: <span class="eAntw zuDrop" data-baa-lsg="0">1945;1960;2020</span></td>
+		</tr>
+		<tr>
+			<td colspan="2">Markieren Sie dann alle Antwortoptionen gemeinsam und wählen das obere Symbol <img src="https://baa.at/projekte/dc/assets/uploads/images/uebung_4383_2.png" style="width: 152px;" /> - erledigt!</td>
+		</tr>
+	</tbody>
+</table>

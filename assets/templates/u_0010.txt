@@ -1,0 +1,29 @@
+<h2 style="text-align: center;">Überschrift: Text und Text</h2>
+
+<table style="width: 100%;">
+	<tbody>
+		<tr>
+			<td style="width: 50%;">
+			<p>Informationstext ...</p>
+
+			<ul>
+				<li>Informationspunkte</li>
+				<li>Informationspunkte</li>
+				<li>Informationspunkte</li>
+			</ul>
+			</td>
+			<td>
+			<p>Informationstext ...</p>
+
+			<p>Die Tabellenvariante bietet mir viele gute Möglichkeit, Texte zusammen zu halten, und Bezüge zu erhalten.<br />
+			Für das Breitformat des Tablets ideal, für das Längsformat auf dem Handy eher schlecht.</p>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">Mit der rechten Maustaste kann man noch viele erweiterte Dinge - speziell in einer Tabelle - durchführen (nur im Editor - nicht im Schülermodus).</td>
+		</tr>
+		<tr>
+			<td colspan="2">Für Neugierige: Mit der Tastenkombination [Strg + S] speichert und schließt man das Editierfenster automatisch.</td>
+		</tr>
+	</tbody>
+</table>

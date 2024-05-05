@@ -1,0 +1,260 @@
+<script>
+    edit_mode = 1; // ist nicht der chkeditor_mode
+    prg = "dcm";
+    //editor_mode="<?=$_GET['chkedit_mode'];?>"; //0: aus, 1: klein, 2: großß
+    var close_frage = false;
+
+
+    var ctrlFlag = 0;
+    $(document)
+        .keydown(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == 17) {
+                ctrlFlag = 1;
+                //console.log("ein - ctrlFlag")
+            } else if ((keycode == 83) && (ctrlFlag)) {
+                event.preventDefault();
+                // parent.saveFromExtern();
+                // send_von_aussen();
+            }
+        }).keyup(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if (keycode == 17) {
+                ctrlFlag = 0;
+                //console.log("ctrlFlag 0")
+            }
+        });
+
+
+    function resizen_author() {
+        ww = $(window).width();
+        wh = $(window).height();
+        resize_dynamo(1);
+    }
+
+    // var requestGetValue = http({
+    //     method: "post",
+    //     url: adr,
+    //     dataType: 'json',
+    //     contentType: 'application/json',
+    //     mimeType: 'application/json'
+    // })
+
+    let uid = "0000";
+    let uv = "u";
+    if (location.search) {
+        const params = new URLSearchParams(location.search);
+        if (params.get("uid")) {
+            uid = parseInt(params.get("uid")); // is the number 123
+            // adr = `../assets/user_img/${uv}_${uid}.txt`;
+        }
+    }
+    let adr = `../assets/user_img/${uv}_${uid}.txt`;
+
+    base_baa = "https://baa.at/projekte/dc";
+
+    function hole_htm_php(edi) {
+        if (uid < 20) {
+            hole_text_datei(edi);
+        } else {
+            let adr1 = "php/get_save_html.php";
+            var data = {
+                flag: "0",
+                u_id: uid
+            };
+            $.ajax({
+                type: "POST",
+                url: adr1,
+                data: data,
+                // data: JSON.stringify(data),
+                // dataType: "json",
+                // contentType: "application/json",
+                //nicht wegnehmen, sonst kann ich auf javascript nicht mehr senden
+                success: function(phpData) {
+                    if (phpData) {
+                        console.warn("PHPdatei");
+                        htm = phpData;
+                        if (htm.includes("mcard")) {
+                            htm = nach_dem_laden_mcard(htm);
+                        }
+                        edi.setData(htm);
+
+                    } else {
+                        // alert("no");
+                        hole_text_datei(edi);
+                    }
+                    // $(body).addClass("done");
+                }
+            });
+        }
+    }
+
+    function hole_text_datei(edi) {
+        var oReq = new XMLHttpRequest();
+        oReq.addEventListener("load", reqListener);
+        oReq.open("POST", adr);
+        oReq.send();
+
+        function reqListener() {
+            if (this.status == 200) {
+                if (this.responseText !== '0') {
+                    console.warn("Textdatei");
+                    document.getElementById("uebg_id").value = uid;
+                    htm = this.responseText;
+                    if (htm.includes("mcard")) {
+                        htm = nach_dem_laden_mcard(htm);
+                    }
+                    edi.setData(htm);
+                    // location = "http://website.com/file.php?data=test&more=example";
+                }
+            } else {
+                document.getElementById("uebg_id").value = uid;
+                // alert("Text nicht Gefunden!");
+                // edi.setData("Text nicht gefunden (" + uid + ")!");
+                throw new Error(this.statusText);
+            }
+        }
+
+    }
+
+
+    function nach_dem_laden_mcard(htm_txt) {
+
+        let $a_samm_qr = [];
+        let ues_h2 = "Überschrift";
+
+
+        htm_txt = htm_txt.replace(/\t/g, "");
+        regex = /\.\.\/assets/g;
+        htm_txt = htm_txt.replace(regex, base_baa + "/assets");
+
+        let $htm = $("<div>" + htm_txt + "</div>");
+
+        let $neu = $("<div></div>");
+        regex = "";
+        $htm.find(".mcard").each(function() {
+            $mc = $(this);
+            $mc.find("table").each(function(ind_t) {
+                if (ind_t == 0) {
+                    $mc.find("tr").each(function(ind_tr) {
+                        $tr = $(this);
+                        if (ind_tr == 0) {
+                            ues_h2 = $tr.text();
+                            $tr.remove();
+
+                        } else {
+                            $tr.find("td").each(function(ind_td) {
+                                $td = $(this);
+                                console.log($td.attr("style"), $td.width(), $td.css("width"));
+                                if ($td.css("width")) {
+                                    $td.attr("width", $td.css("width"));
+                                    $td.css("width", "");
+                                }
+
+                                $tr.find("ul").each(function() {
+                                    $(this).removeAttr("style");
+                                });
+                                $tr.find(".flexi").each(function() {
+                                    let $flexi = $(this);
+                                    if ($flexi.find(".fc_qr").length > 0) {
+                                        $flexi.find(".fc_qr").each(function() {
+                                            $a_samm_qr.push($(this));
+                                            $(this).replaceWith("");
+                                        });
+
+                                    }
+                                });
+
+                                $tr.find(".flexi").each(function() {
+                                    $flexi = $(this);
+                                    $flexi.find("div").each(function() {
+                                        $flexi.html($(this).html());
+                                    });
+
+                                    console.log($flexi.html());
+                                    $flexi.parent().html($flexi.html());
+                                });
+                                if (ind_td == 1) {
+                                    $td.find("br").each(function() {
+                                        $(this).remove();
+                                    });
+                                    if ($a_samm_qr.length > 0) {
+                                        $td.append("<br><br>");
+                                        $a_samm_qr.forEach(function(qr) {
+                                            $td.append(qr);
+                                            $td.append(" ");
+                                            $td.append(" ");
+                                        });
+                                        $td.css({
+                                            "vertical-align": "bottom",
+                                            "text-align": "center"
+                                        });
+
+                                    }
+
+                                }
+
+                            });
+                        }
+
+                    });
+                }
+            });
+
+            $neu.append("<h2 style='text-align:center'>" + ues_h2.trim() + "</h2>");
+            $neu.append($mc.html());
+            console.log($neu.html());
+        });
+        return $neu.html();
+    }
+
+
+
+
+
+    function init() {
+        CKEDITOR.replace('edit_area', {
+            uiColor: '#9AB8F3'
+        });
+    }
+
+
+
+    var editor = 0;
+    CKEDITOR.on('instanceReady', function(evt) {
+        editor = evt.editor;
+        editor.execCommand('maximize');
+        hole_htm_php(editor);
+        // editor.setMode( 'wysiwyg' );
+
+        editor.on('fileUploadRequest', function(evt) {
+            // Copy contents of 'upload' image field to a new field with 'new_name'
+            let uid = parent.akt_uebung_id;
+            let ur_dname = prompt("Das zu speichernde Bild erhält den Namen:", "uebung_" + uid);
+            evt.data.requestData['upload'].name = ur_dname + ".png";
+            // evt.data.requestData['upload'].name = "uebung_" + uid + ".png";
+        });
+
+    });
+
+
+    function send_von_aussen() {
+        // window.parent.txt_to_server(editor);
+        // document.getElementById("uebg_id").value = uid;
+        // document.getElementById("edit_form").submit();
+        // $("#uebg_id").val(uid);
+        // editor.execCommand('save');
+    }
+
+    window.onload = function() {
+        init();
+    };
+
+    $(window).bind('beforeunload', function(Event) {
+        if (close_frage) {
+            return "Seite wirklich verlassen!";
+        } else {
+
+        }
+    });
+</script>

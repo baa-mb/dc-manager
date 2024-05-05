@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5vw;
+            width: 100%;
+        }
+        
+        .container {
+            display: flex;
+            width: 100%;
+            border-bottom:2px solid orangered;
+            margin-bottom:8px;
+        }
+        
+        .container div:nth-child(1) {
+            flex: 0 0 8%;
+            /* padding-right: 8px; */
+        }
+        .container div:nth-child(2) {
+            flex: 0 0 30%;
+            padding-right: 8px;
+        }
+        
+        .container div:nth-child(3) {
+            flex: 0 1 60%;
+            padding-right: 8px;
+        }
+        div span {
+            padding:12px;
+            background: radial-gradient( white, black);
+            border: 2px solid orangered;
+            border-radius: 8px;
+            font-size:1.5em;
+            display:block;
+            margin-bottom:8px;
+            width:2em;
+            text-align:center
+        }
+
+        img {
+            border: 2px solid orangered;
+            border-radius: 8px;
+            padding: 14px;
+            background-color: #333;
+            background: radial-gradient( white, black);
+            /* width:50% */
+        }
+
+        h1,h2,h3 {
+            text-align:center
+        }
+
+        /* #cont_ipad,#cont_pc {
+            display: none;
+        } */
+
+    </style>
+
+</head>
+
+<body>
+    <div id="cont_ipad">
+
+        <h2>Mehr Platz im iPad-Browser-Fenster:</h2>
+
+        <h4>A) Erstellt auf dem Desktop ein Home-Icon, danach kann der digi.case-Manager über das Icon gestartet werden</h4>
+        <div class="container">
+            <div><span>1</span></div>
+            <div>Die Web-Adresse <b>dc.baa.at</b><br>im Browser öffnen und das Icon für <b>'Teilen'</b> wählen.</div>
+            <div><img width="80%" src="../icons/home_icon1.png"></div>
+        </div>
+        <div class="container">
+            <div><span>2</span></div>
+            <div><b>Home-Icon:</b><br><br>Zum 'Home-Bildschirm' hinunter scrollen und dieses wählen.</div>
+            <div><img src="../icons/home_icon2.png"></div>
+        </div>
+        <div class="container">
+            <div><span>3</span></div>
+            <div>Den vorgeschlagenen Namen des Icon bestätigen mit <b>Hinzufügen</b>.</div>
+            <div><img src="../icons/home_icon3.png"></div>
+        </div>
+
+        <div class="container">
+            <div><span>4</span></div>
+            <div><b>Home-Icon:</b><br><br>Es entsteht ein neues Start-Icon auf dem Home-Screen. Ab jetzt kann man den digi.case-Manager ganz einfach über das Icon starten.</div>
+            <div style="flex: 0 1 10%"><img src="../icons/home_icon4.png"></div>
+            <div>Wenn der letzte Spieler ausgeloggt hat, dann muss man über Anmeldung und den Klassencode einsteigen.<br><br>Überhaupt ist sehr zu empfehlen, dass man nach dem Arbeiten ausloggt (abmeldet), gerade dann, wenn es nicht das eigene iPad ist.</div>
+        
+        </div>
+        <hr>
+        
+        <h4><br>B) Eine weitere Möglichkeit, etwas mehr Platz auf dem Bildschirm zu schaffen, ist die Ausblendung überflüssiger Browser-Elemente.</h4>
+        Wenn ihr auf den Schulgeräten arbeitet, dann fragt eure Lehrkraft zuerst um Genehmigung für diese Umstellungen.<br><br>
+        <div class="container">
+            <div><span>1</span></div>
+            <div><b>Einstellungen:</b></div>
+            <div><img src="../icons/ipad1.png"></div>
+        </div>
+        <div class="container">
+            <div><span>2</span></div>
+            <div><b>Safari Browser:</b></div>
+            <div><img src="../icons/ipad2.png"></div>
+        </div>
+        <h4>Schaltet im Safari-Browser die Favoritenleiste aus und schaltet auch auf platzsparende Reiterdarstellung um</h4>
+        <div class="container">
+            <div><span>3</span></div>
+            <div><b>Empfohlende Einstellungen:</b><br><br>Die Favoritenleiste besetzt im Browser ständig einen Streifen. Falls die Favoritenleiste eingeschaltet ist, sollte man diese Einstellung ändern auf die Darstellung in der Abbildung.<br><br>
+                <img src="../icons/ipad3.png"><br><br>
+                <b>Auch die kompakte Tableiste bringt viel zusätzlichen Platz!</b>
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <div id="cont_pc">
+        <h2>Mehr Platz auf dem Browser des PC oder MAC:</h2>
+        <div class="container">
+            <div><span>1</span></div>
+            <div>
+                Die Taste F11 schaltet in jedem Browser den Vollbildmodus ein (Wechselschalter => abermaliges Betätigen schaltet wieder aus)<br><br>Eine wertvolle Funktion für viele Web-Seiten in der Schule. Probier es gleich einmal!
+                <br><br>
+            </div>
+            <div><img src="../icons/pc_vb1.png"></div>
+        </div>
+        <div class="container">
+            <div><span>2</span></div>
+            <div>Zweite Möglichkeit: Das Vollbild-Icon des digi.case-Managers schaltet ebenfalls in den Vollbild-Modus (Wechselschalter)</div>
+            <div><img src="../icons/pc_vb2.png"></div>
+        </div>
+
+    </div>
+
+
+</body>
+
+<script>
+
+    // alert(location.search) 
+    // a_tmp=location.search.split("color=");
+    // // alert(decodeURIComponent(a_tmp[1]))
+    // if (a_tmp.length>0) {
+    //     let c=decodeURIComponent(a_tmp[1]);
+    //     document.body.style.color=c;
+    // }    
+
+    // document.getElementById("cont_pc").style.display="none";
+    // document.getElementById("cont_ipad").style.display="none";
+    // if (location.search.includes("pc")) {
+    //     document.getElementById("cont_pc").style.display="block";
+    // } else {
+    //     document.getElementById("cont_ipad").style.display="block";
+    // }
+    document.getElementById("cont_pc").style.display="block";
+    document.getElementById("cont_ipad").style.display="block";
+</script>
+
+
+</html>

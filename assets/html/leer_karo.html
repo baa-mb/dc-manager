@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <base href="https://baa.at/projekte/dc/lib/">
+
+    <style>
+        body {
+            margin:0; 
+            background:white;
+            height:100vh;
+            height:100vh;
+        }
+        /* div {
+            background-image: url('./../icons/leer_karo.png');
+            width:100vw;
+            height:100vh;
+        } */
+    </style>
+        <script>
+            
+            function init() {
+                let adr="../assets/icons/leer_karo.png";    
+                document.body.style.backgroundImage=`url(${adr})`;
+                window.parent.ablatt_id=adr;
+                window.parent.ablatt_kzz="LZ";
+            }
+        </script>
+    
+</head>
+<body onload="init()">
+    
+</body>
+</html>

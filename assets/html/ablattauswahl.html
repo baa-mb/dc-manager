@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="https://baa.at/projekte/dc/lib/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weitere Dokumente</title>
+    <!-- <link rel="stylesheet" href="../assets/html/sammlung.css"> -->
+    <link rel="stylesheet" href="../assets/html/sammlung.css">
+    <script type="text/javascript" src="../assets/html/sammlung.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            baa_root.init('AB',5, ":", 0, 1);
+        });
+
+        var a_ablatt = [
+        ['.Allgemein'],
+            ['AB1: Algorithmen 1', '5490-1-Algorithmisierung.docx.pdf', 1],
+            ['AB2: Algorithmen 2', '5490-2-Algorithmisierung.docx.pdf', 1],
+            ['AB3: Algorithmen 3', '5490-3-Algorithmisierung.docx.pdf', 1],
+            ['AB4: Algorithmen 4', '5490-4-Algorithmisierung.docx.pdf', 1],
+            ['AB5: Mustererkennung 1', '5491-1-Mustererkennung.docx.pdf', 1],
+            ['AB6: Mustererkennung 2', '5491-2-Mustererkennung.docx.pdf', 1],
+            ['AB7: Mustererkennung 3', '5491-3-Mustererkennung.docx.pdf', 1],
+            ['AB8: Mustererkennung 4', '5491-4-Mustererkennung.docx.pdf', 1],
+            ['AB9: Mustererkennung 5', '5491-5-Mustererkennung.docx.pdf', 1],
+            ['AB10: Evaluierung', '5492-0-Evaluierung.docx.pdf', 1],
+            ['AB11: Abstraktion 1', '5497-0-Abstraktion.docx.pdf', 1],
+            ['AB12: Abstraktion 2', '5497-1-Abstraktion.docx.pdf', 1],
+            ['AB13: Abstraktion 3', '5497-2-Abstraktion.docx.pdf', 1],
+            ['AB14: Abstraktion 4', '5497-3-Abstraktion.docx.pdf', 1],
+            ['AB15: Abstraktion 5', '5497-4-Abstraktion.docx.pdf', 1],
+            ['AB16: Problemzerlegung 1', '5499-0-Problemzerlegung.docx.pdf', 1],
+            ['AB17: Problemzerlegung 2', '5499-1-Problemzerlegung.docx.pdf', 1],
+            ['AB18: Problemzerlegung 3', '5499-2-Problemzerlegung.docx.pdf', 1],
+            ['AB19: Problemzerlegung 4', '5499-3-Problemzerlegung.docx.pdf', 1],
+            ['AB20: Problemzerlegung 5', '5499-4-Problemzerlegung.docx.pdf', 1],
+            ['AB21: Verallgemeinerung', '5612-4-Verallgemeinerung.docx.pdf', 1],
+            ['.Binärwürfel'],
+            ['ABW1: Binärwürfel', 'abw1.pdf', 1],
+            ['ABW2: Binärwürfel', 'abw2.pdf', 1],
+            ['ABW3: Binärwürfel', 'abw3.pdf', 1],
+            ['ABW4: Binärwürfel', 'abw4.pdf', 1],
+            ['ABW5: Binärwürfel', 'abw5.pdf', 1],
+            ['ABW6: Binärwürfel', 'abw6.pdf', 1],
+            // ['ABW7: Binärwürfel', 'abw7.pdf',1],
+            ['ABW8: Binärwürfel', 'abw8.pdf', 1],
+            ['ABW9: Binärwürfel', 'abw9.pdf', 1],
+            ['ABW10: Binärwürfel', 'abw10.pdf', 1],
+            ['ABW11: Binärwürfel', 'abw11.pdf', 1],
+            ['ABW12: Binärwürfel', 'abw12.pdf', 1],
+            ['ABW13: Binärwürfel', 'abw13.pdf', 1],
+            ['ABW14: Binärwürfel', 'abw14.pdf', 1],
+            ['ABW15: Binärwürfel', 'abw15.pdf', 1],
+            ['ABW16: Binärwürfel', 'abw16.pdf', 1],
+            ['ABW17: Binärwürfel', 'abw17.pdf', 1],
+            ['.Cäsar-Scheibe, Tetris'],
+            ['AC1: Cäsar-Scheibe', 'ac1.pdf', 1],
+            ['AC2: Cäsar-Scheibe', 'ac2.pdf', 1],
+            ['AD1: Daten und Muster', 'ad1.pdf', 1],
+            ['AD2: Daten und Muster', 'ad2.pdf', 1],
+            ['AE1: Tetris', 'ae1.pdf', 1],
+            ['AE2: Tetris', 'ae2.pdf', 1],
+            ['AE3: Tetris', 'ae3.pdf', 1],
+            ['AE4: Tetris', 'ae4.pdf', 1],
+            ['AE5: Tetris', 'ae5.pdf', 1],
+            ['.Übungsfragebogen'],
+            ['AFS1: Übungsfragebogen', 'afs1.pdf', 1],
+            ['AFS2: Übungsfragebogen 2', 'afs2.pdf', 1],
+            ['AFS3: Übungsfragebogen 3', 'afs3.pdf', 1],
+            ['AFS3: Übungsfragebogen 4', 'afs4.pdf', 1],
+            ['.Falten und Gestalten'],
+            ['AF1: Falten und Gestalten', 'af1.pdf', 0],
+            ['AF2: Falten und Gestalten', 'af2.pdf', 0],
+            ['AF3: Falten und Gestalten', 'af3.pdf', 0],
+            ['AF4: Falten und Gestalten', 'af4.pdf', 0],
+            ['AF5: Falten und Gestalten', 'af5.pdf', 0],
+            ['AF6: Falten und Gestalten', 'af6.pdf', 1],
+            ['.Geobrett, Hanoi'],
+            ['AG1: Geobrett', 'ag1.pdf', 1],
+            ['AG2: Geobrett', 'ag2.pdf', 1],
+            ['AG3: Geobrett', 'ag3.pdf', 1],
+            ['AG4: Geobrett', 'ag4.pdf', 1],
+            ['AG5: Geobrett', 'ag5.pdf', 1],
+            ['AG6: Geobrett', 'ag6.pdf', 1],
+            ['AH1: Türme von Hanoi', 'ah1.pdf', 1],
+            ['AH2: Türme von Hanoi', 'ah2.pdf', 1],
+            ['AH3: Türme von Hanoi', 'ah3.pdf', 1],
+            ['AH4: Türme von Hanoi', 'ah4.pdf', 1],
+            ['AH5: Türme von Hanoi', 'ah5.pdf', 1],
+            ['.Mühle'],
+            ['AM1: Mühle', 'am1.pdf', 1],
+            ['AM2: Mühle', 'am2.pdf', 1],
+            ['AM3: Mühle', 'am3.pdf', 1],
+            ['AM4: Mühle', 'am4.pdf', 1],
+            ['AM5: Mühle', 'am5.pdf', 1],
+            ['AM6: Mühle', 'am6.pdf', 1],
+            ['.Coding'],
+            ['AP1: Einfaches Coding', 'ap1.pdf', 0],
+            ['AP2: Einfaches Coding', 'ap2.pdf', 0],
+            ['AP3: Einfaches Coding', 'ap3.pdf', 0],
+            ['AP4: Einfaches Coding', 'ap4.pdf', 0],
+            ['AP5: Einfaches Coding', 'ap5.pdf', 0],
+            ['AP6: Einfaches Coding', 'ap6.pdf', 0],
+            ['AP7: Einfaches Coding', 'ap7.pdf', 0],
+            ['AP8: Einfaches Coding', 'ap8.pdf', 0],
+            ['AP9: Einfaches Coding', 'ap9.pdf', 0],
+            ['AP10: Einfaches Coding', 'ap10.pdf', 0],
+            ['AP11: Einfaches Coding', 'ap11.pdf', 0],
+            ['AP12: Einfaches Coding', 'ap12.pdf', 0],
+            ['AP13: Einfaches Coding', 'ap13.pdf', 0],
+            ['AP14: Einfaches Coding', 'ap14.pdf', 0],
+            ['AP15: Einfaches Coding', 'ap15.pdf', 0],
+            ['AP16: Einfaches Coding', 'ap16.pdf', 0],
+            ['AP17: Einfaches Coding', 'ap17.pdf', 0],
+            ['AP18: Einfaches Coding', 'ap18.pdf', 1],
+            ['.Zauberquadrate'],
+            ['AQ1: Zauberquadrate', 'aq1.pdf', 1],
+            ['AQ2: Zauberquadrate', 'aq2.pdf', 1],
+            ['AQ3: Zauberquadrate', 'aq3.pdf', 1],
+            ['AQ4: Zauberquadrate', 'aq4.pdf', 1],
+            ['.Spiele basteln'],
+            ['ASP1: Spiele basteln', 'asp1.pdf', 1],
+            ['ASP2: Spiele basteln', 'asp2.pdf', 1],
+            ['ASP3: Spiele basteln', 'asp3.pdf', 1],
+            ['ASP4: Spiele basteln', 'asp4.pdf', 1],
+            ['ASP5: Spiele basteln', 'asp5.pdf', 1],
+            ['.Soma-Würfel'],
+            ['AS1: Soma-Würfel', 'as1.pdf', 1],
+            ['AS2: Soma-Würfel', 'as2.pdf', 1],
+            ['AS3: Soma-Würfel', 'as3.pdf', 1],
+            ['AS4: Soma-Würfel', 'as4.pdf', 1],
+            ['AS5: Soma-Würfel', 'as5.pdf', 1],
+            ['AS6: Soma-Würfel', 'as6.pdf', 1],
+            ['AS7: Soma-Würfel', 'as7.pdf', 1],
+            ['AS8: Soma-Würfel', 'as8.pdf', 1],
+            ['AS9: Soma-Würfel', 'as9.pdf', 1],
+            ['AS10: Soma-Würfel', 'as10.pdf', 1],
+            ['AS11: Soma-Würfel', 'as11.pdf', 1],
+            ['.Tangram'],
+            ['AT1: Tangram', 'at1.pdf', 1],
+            ['AT2: Tangram', 'at2.pdf', 1],
+            ['AT3: Tangram', 'at3.pdf', 1],
+            ['AT4: Tangram', 'at4.pdf', 1],
+            ['AT5: Tangram', 'at5.pdf', 1],
+            ['AT6: Tangram', 'at6.pdf', 1],
+            ['AT7: Tangram', 'at7.pdf', 1],
+            ['AT8: Tangram', 'at8.pdf', 1],
+            ['AT9: Tangram', 'at9.pdf', 1],
+            ['AT10: Tangram', 'at10.pdf', 1],
+            ['AT11: Tangram', 'at11.pdf', 1],
+            ['AT12: Tangram', 'at12.pdf', 1],
+            ['AT13: Tangram', 'at13.pdf', 1],
+            ['AT14: Tangram', 'at14.pdf', 1],
+            ['AT15: Tangram', 'at15.pdf', 1],
+            ['AT16: Tangram', 'at16.pdf', 1],
+            ['.Würfelbrett'],
+            ['AW1: Würfelbrett', 'aw1.pdf', 1],
+            ['AW2: Würfelbrett', 'aw2.pdf', 1],
+            ['AW3: Würfelbrett', 'aw3.pdf', 1],
+            ['AW4: Würfelbrett', 'aw4.pdf', 1],
+            ['AW5: Würfelbrett', 'aw5.pdf', 1],
+            ['AW6: Würfelbrett', 'aw6.pdf', 1],
+            ['AW7: Würfelbrett', 'aw7.pdf', 1],
+            ['AW8: Würfelbrett', 'aw8.pdf', 1],
+            ['AW9: Würfelbrett', 'aw9.pdf', 1],
+            ['AW10: Würfelbrett', 'aw10.pdf', 1],
+            ['AW11: Würfelbrett', 'aw11.pdf', 1],
+            ['.Getriebe'],
+            ['AZ1: Getriebe', 'az1.pdf', 1],
+            ['AZ2: Getriebe', 'az2.pdf', 1],
+            ['AZ3: Getriebe', 'az3.pdf', 1],
+            ['AZ4: Getriebe', 'az4.pdf', 1],
+            ['AZ5: Getriebe', 'az5.pdf', 1],
+            ['AZ6: Getriebe', 'az6.pdf', 1],
+            ['AZ7: Getriebe', 'az7.pdf', 1]
+        ]
+
+
+
+
+        function show_ablatt(kzz, id, vers_grafik = 0) {
+            let adr = "../assets/pdfs/" + id + "#toolbar=0&view=FitH";
+            if (vers_grafik) {
+                adr = "show_page.php?datei_url=" + "../assets/pdfs/" + id.replace(".pdf", ".png");
+            }
+            document.location.href = adr;
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

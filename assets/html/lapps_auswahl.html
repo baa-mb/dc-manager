@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="https://baa.at/projekte/dc/lib/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weitere Dokumente</title>
+    <link rel="stylesheet" href="../assets/html/sammlung.css">
+    <script type="text/javascript" src="../assets/html/sammlung.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <style>
+        button {
+            font-size: 0.9em;
+            padding: 2px
+        }
+    </style>
+
+
+    <script>
+
+        var a_ablatt = [
+            // ['LAP_0: Zahlen', 11127540],
+
+        ]
+
+  
+        window.parent.ablatt_id = "";
+        window.parent.ablatt_kzz == "";
+
+
+
+        var la_id = 8544;
+        var la_kzz = "LA";
+
+        let akt_lehrer_id=localStorage.getItem("akt_lehrer_id");
+        
+
+        function get_apps_vs(level, a_ablatt) {
+            // var a_ablatt=[];
+            let f_lapps = window.parent.filter_lapps;
+            let alt_sstufe = "-1";
+
+            src = "../assets/html/lib/api_lapps.php";
+            sende = { "flag": 'get_vs', "level": level, "filter_lapps": f_lapps };
+            fetch(src, {
+                method: 'POST',
+                body: JSON.stringify(sende)
+            })
+                .then((response) => response.json())
+                .then((jsonObject) => {
+                    // console.log(jsonObject)
+
+                    let i = 0;
+                    for (var app of jsonObject) {
+                        i++;
+                        if (app.sstufe != alt_sstufe) {
+                            a_ablatt.push(['.']);
+                        }
+                        let a_tmp="";
+                        if ((akt_lehrer_id==1) || (akt_lehrer_id==60)) {
+                            a_tmp = [`${app.sstufe} LAP${i}:  ` + app.title + "/" + app.id + "/ " + app.author, Number(app.id)]
+                        } else {
+                            a_tmp = [`LAP${i}: ` + app.title , Number(app.id),app.max_pt]
+                        }
+                        
+                        // console.log(a_tmp)
+                        a_ablatt.push(a_tmp);
+                        alt_sstufe = app.sstufe;
+                    }
+
+                    baa_root.init('LA',4, ":", 9, 0);
+                    // baa();
+
+                })
+
+                .catch((error) => {
+                    console.error("Fehler beim Abrufen der Kategorien:", error);
+                });
+        }
+
+        get_apps_vs(1, a_ablatt);
+
+        function show_ablatt(kzz, id) {
+            window.parent.anz_bsp=3; 
+            la_id = id;
+            la_kzz = kzz;
+            adr = `./show_page.php?la_id=${id}`;
+            document.location.href = adr;
+        }
+
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

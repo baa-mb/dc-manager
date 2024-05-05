@@ -1,0 +1,27 @@
+<h2 style="text-align: center;">Beispiel einer Informationsseite</h2>
+
+<table>
+	<tbody>
+		<tr>
+			<td>
+			<p><strong>Grundregeln:</strong></p>
+
+			<ul>
+				<li>Beachte bei den Spielen vor allem, dass du nicht einfach probierst, sondern ganz gezielt eine Lösung suchst.</li>
+				<li>Bearbeite eine Station mehrmals, damit du dich verbessern kannst.</li>
+				<li>Beachte auch, dass es nicht um Schnelligkeit geht.</li>
+			</ul>
+			</td>
+			<td><br />
+			<img class="border" src="https://baa.at/projekte/dc/assets/uploads/images/b_20230627_134913.png" /></td>
+		</tr>
+		<tr>
+			<td colspan="2">Frage deinen Lernpartner, deine Lehrerin oder deinen Lehrer, wenn du Schwierigkeiten hast.</td>
+		</tr>
+	</tbody>
+</table>
+
+<p></p>
+
+<p>Das ist eine Demoseite - man kann diese als Gestaltungsgrundlage nutzen, verändern und eine neue gestalten - oder aus den Vorlagen wählen.</p>
+

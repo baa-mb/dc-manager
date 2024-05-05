@@ -1,0 +1,1 @@
+siehe https://baa.at/projekte/dc/lib/php/pdf2image.php

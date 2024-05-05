@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <base href="https://baa.at/projekte/dc/lib/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biberbeispiele</title>
+    <link rel="stylesheet" href="../assets/html/sammlung.css">
+    <script type="text/javascript" src="../assets/html/sammlung.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            baa_root.init("L", 5, ":");
+        });
+
+        window.parent.ablatt_id = "8544";
+        window.parent.ablatt_kzz = "RL1";
+        var a_ablatt = [
+            ['.Schulstufe 1 + 2'],
+            ['DS00: Zuordnung', 658],
+            ['DS00: Zuordnung ', 289],
+            ['DS01: Buchstabenlogik', 475],
+            ['DS02: Buchstabenlogik', 476],
+            ['DS03: Buchstabenlogik', 477],
+            ['DS04: Buchstabenlogik', 478],
+            ['DS05: Buchstabenlogik', 479],
+
+            ['DS76: Logik', 12273],
+            ['DS79: Logik', 575],
+            ['DS80: Logik', 576],
+            ['DS82: Logik', 588],
+            ['DS83: Logik', 591],
+
+
+            // ['.Schulstufe 2'],
+            ['RL1: Logiktabelle', 8544],
+            ['RL2: Logiktabelle', 8548],
+            ['RL3: Logiktabelle', 8559],
+            ['RL4: Logiktabelle', 8560],
+            ['RL5: Logiktabelle', 8549],
+            ['RL6: Logiktabelle', 8550],
+            ['RL7: Logiktabelle', 8551],
+            ['RL8: Logiktabelle', 8552],
+            ['RL9: Logiktabelle', 8553],
+            ['RL10: Logiktabelle', 8554],
+            ['RL11: Logiktabelle', 8555],
+            ['RL12: Logiktabelle', 8556],
+            ['RL13: Logiktabelle', 8557],
+            ['RL14: Logiktabelle', 8558],
+            ['RL15: Logiktabelle', 8541],
+            ['RL16: Logiktabelle', 8543],
+            ['RL17: Logiktabelle', 8561],
+            ['RL18: Logiktabelle', 8562],
+
+
+            ['.Schulstufe 3'],
+            ['RL19: Logiktabelle+', 8563],
+            ['RL20: Logiktabelle+', 8598],
+            ['RL21: Logiktabelle+', 8565],
+            ['RL22: Logiktabelle+', 8569],
+            ['RL23: Logiktabelle+', 8572],
+            ['RL24: Logiktabelle+', 8573],
+            ['RL25: Logiktabelle+', 8574],
+            ['RL26: Logiktabelle+', 8575],
+            ['RL27: Logiktabelle+', 8577],
+            ['RL28: Logiktabelle+', 8578],
+            ['RL29: Logiktabelle+', 8579],
+            ['RL30: Logiktabelle+', 8580],
+            ['RL31: Logiktabelle+', 8581],
+            ['RL32: Logiktabelle+', 8582],
+            ['RL33: Logiktabelle+', 8584],
+            ['RL34: Logiktabelle+', 8585],
+            ['RL35: Logiktabelle+', 8588],
+            ['RL36: Logiktabelle+', 8589],
+            ['RL37: Logiktabelle+', 8590],
+            ['RL38: Logiktabelle+', 8591],
+            ['RL39: Logiktabelle+', 8592],
+            ['RL40: Logiktabelle+', 8593],
+            ['RL41: Logiktabelle+', 8594],
+            ['RL42: Logiktabelle+', 8595],
+            ['RL43: Logiktabelle+', 8596],
+            ['RL44: Logiktabelle+', 8597],
+            
+            ['DS09: Multiplikation', 12269],
+
+            ['DS10: Ergänzen', 8147],
+            ['DS11: Zeit', 12219],
+            ['DS12: Geld', 8715],
+            ['DS13: Logische Reihe', 571],
+            ['DS14: Logische Reihe', 572],
+            ['DS15: Logische Reihe', 573],
+            ['DS16: Logische Reihe', 574],
+            ['DS17: Logische Reihe', 577],
+            
+            
+            ['DS18 Malaufgabe', 8270],
+            ['DS19: Geld', 8259],
+            ['DS20: Geld', 8262],
+            ['DS21: Zeit', 8256],
+            ['DS22: Malaufgabe', 8260],
+            ['DS23: Kopfrechnen', 8264],
+            ['DS24: Geld', 8265],
+            ['DS25: Malaufgabe', 8266],
+            ['DS26: Malaufgabe', 8267],
+            ['DS27: Zeit', 8268],
+            ['DS28: Geld', 8269],
+            ['DS29: Malaufgabe', 8271],
+            ['DS30: Geld', 8251],
+            ['DS31: Geld', 8252],
+            ['DS32: Längenmaße', 8253],
+            ['DS33: Geld', 8254],
+            ['DS34: Gewichtsmaße', 8255],
+            ['DS35: Gewichtsmaße', 8257],
+            ['DS36: Geld', 8258],
+            ['DS37: Teilen', 8713],
+            ['DS38: Teilen', 8722],
+            ['DS39: Insätzchen', 8718],
+            ['DS40: Malaufgabe', 8719],
+            ['DS41: Geld', 8720],
+            ['DS42: Enthalten sein', 8721],
+            ['DS43: Zahlensuche', 8263],
+            
+            
+            
+            ['.Schulstufe 4'],
+            ['RT1: Texträtsel', 8187],
+            ['RT2: Texträtsel', 8192],
+            ['RT3: Texträtsel', 8193],
+            ['RT4: Texträtsel', 8194],
+            ['RT5: Texträtsel', 8195],
+            ['RT6: Texträtsel', 8198],
+            ['RT7: Texträtsel', 8199],
+            ['RT8: Texträtsel', 8200],
+            ['RT9: Texträtsel', 8201],
+            ['RT10: Texträtsel', 8202],
+
+
+            ['RD1: Texträtsel', 12221],
+            ['RD2: Texträtsel', 12222],
+            ['RD3: Längenmaße', 12223],
+            ['RD4: Malaufgabe', 12225],
+            ['RD5: Stellenwert', 12226],
+            ['RD6: Zeit', 12270],
+            ['RD7: Zeit', 12229],
+            ['RD8: Zeit', 8200],
+            ['RD9: Logik', 12273],
+            ['RD10: Logik', 12274],
+            ['RD11: Längenmaße', 12220],
+
+            ['DS49: Texträtsel', 12221],
+            ['DS50: Texträtsel', 12222],
+            ['DS51: Längenmaße', 12223],
+            ['DS52: Texträtsel', 12224],
+            ['DS53: Texträtsel', 8192],
+            ['DS54: Texträtsel', 8193],
+            ['DS55: Texträtsel', 12225],
+            ['DS56: Stellenwert', 12226],
+            ['DS57: Texträtsel', 8194],
+            ['DS58: Umfang', 8199],
+            ['DS59: Texträtsel', 8187],
+            ['DS60: Zeit', 12229],
+            ['DS61: Längenmaße', 1141],
+            ['DS62: Texträtsel', 10601],
+            ['DS63: Längenmaße', 6946],
+            ['DS64: Zeit', 12270],         
+            ['DS65: Texträtsel', 12272],
+            ['DS66: Zahlenrätsel', 8740],
+            ['DS67: Zahlenrätsel', 8741],
+            ['DS68: Geld', 6943],
+            ['DS69: Stellenwert', 8737],
+            ['DS70: Längenmaß', 8738],
+            ['DS71: Stellenwert', 8739],
+            ['DS72: Ebener Raum', 6948],
+            ['DS73: Zeit', 8200],
+            ['DS74: Texträtsel', 8201],
+            ['DS75: Texträtsel', 8202],
+
+
+            ['DS77: Logik', 12274],
+            ['DS78: Logik', 597],
+            ['DS81: Logik', 587],
+            ['DS83: Logik', 591],
+            ['DS84: Stellenwerträtsel', 8198]
+
+        ];
+
+
+
+
+
+        function show_ablatt(kzz, id) {
+            let adr = "https://edupuzzle.at?pnr=" + id
+            document.location.href = adr;
+        }
+
+    </script>
+    <style>
+        button {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+<script>
+
+</script>
+
+</html>
