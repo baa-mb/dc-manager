@@ -1,4 +1,5 @@
 # ignore all logs
+.allgemein/
 *.log
 ckeditor4/
 !ckeditor4/plugins/
@@ -11,6 +12,7 @@ ckfinder/
 sicherung/
 tmp/
 test/
+tests/
 zzz_*
 * copy.*
 *.min.*
